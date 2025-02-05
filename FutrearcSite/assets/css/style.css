@@ -1,0 +1,490 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Sätter fonten till Arial */
+    line-height: 1.6; /* Radavstånd */
+    margin: 0; /* Tar bort marginaler från kroppen */
+    padding: 0; /* Tar bort padding */
+    color: #000000; /* Textfärg: svart */
+    background-color: #f9f9f9; /* Bakgrundsfärg: ljusgrå */
+}
+
+.container {
+    width: 100%; /* Behåller 90% av bredden av skärmen */
+    max-width: 1200px; /* Maxbredd på 1200px */
+    margin: 0 auto; /* Centrerar innehållet */
+    padding: 0 15px; /* Sidpadding */
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #3a3938, #000000); /* Mörk gradient */
+    color: #fff; /* Vit text */
+    padding: 20px 0; /* Vertikal padding för utrymme */
+}
+
+header .container {
+    display: flex; /* Använder Flexbox */
+    align-items: center; /* Vertikal centrering av innehållet */
+    justify-content: space-between; /* Dela upp logga och meny med utrymme mellan */
+}
+
+.logo {
+    width: 200px; /* Justerar loggans bredd */
+    height: flex; /* Bibehåller proportionerna */
+    margin-right: 20px; /* Mellanrum till nästa element */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);/* Förstorar loggan vid hover */
+}
+
+nav ul {
+    list-style: none; /* Tar bort punktlistan */
+    padding: 0; /* Tar bort padding */
+    margin: 5px 0 0; /* Justerar margin för listan */
+}
+
+nav ul li {
+    display: inline; /* Gör listan horisontell */
+    margin: 0 10px; /* Mellanrum mellan listobjekten */
+}
+
+nav ul li a {
+    color: #fff; /* Vit färg på länktext */
+    text-decoration: none; /* Tar bort understrykning från länkar */
+    font-weight: bold; /* Fetter texten */
+    transition: color 0.3s ease; /* Smidig övergång av färg */
+    font-size: larger;
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Understryker länk vid hover */
+    color: #f25c05; /* Byter färg till orange vid hover */
+}
+
+
+
+/* Hero Section */
+.hero {
+    background: url(../images/bannerny.jpg) no-repeat center center/cover;
+    color: #fff; /* Vit text */
+    text-align: center; /* Centrerad text */
+    padding: 100px 20px; /* Stor padding för utrymme */
+}
+
+.hero h2 {
+    font-size: 3.5rem; /* Större fontstorlek */
+    margin: 0 0 10px; /* Justerar marginaler */
+}
+
+.hero p {
+    font-size: 1.5rem; /* Mellanstor text */
+}
+
+/* Call-to-Action Button */
+.cta {
+    display: inline-block; /* Inline-block för att styra storleken */
+    background-color: #f25c05; /* Orange bakgrund */
+    color: #fff; /* Vit text */
+    padding: 10px 20px; /* Padding runt texten */
+    text-decoration: none; /* Ingen understrykning */
+    font-size: 1rem; /* Standard textstorlek */
+    margin-top: 20px; /* Utrymme ovanför */
+    border-radius: 5px; /* Rundade hörn */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+.cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    z-index: 0;
+    transform: skewX(-45deg);
+    transition: left 0.5s ease;
+}
+
+.cta:hover::before {
+    left: 100%;
+}
+
+.cta:hover {
+    background-color: #9c4a1a; /* Mörkare orange vid hover */
+}
+
+/* News Section */
+.news {
+    padding: 40px 20px; /* Padding för utrymme */
+    background: linear-gradient(90deg, #3a3938, #000000); /* Orange gradient */
+    text-align: center; /* Centrerad text */
+}
+
+.news h2 {
+    color: #f25c05; /* Ändra färgen till orange eller vilken färg du vill */
+    font-size: 2rem; /* Justera storleken om det behövs */
+    text-align: center; /* Centrerar texten */
+    margin-bottom: 20px; /* Justera marginalen om det behövs */
+}
+
+.articles {
+    display: flex; /* Flexbox för att arrangera artiklarna */
+    justify-content: space-around; /* Utrymme mellan artiklar */
+    flex-wrap: wrap; /* Gör att artiklarna kan brytas på nya rader */
+    gap: 20px; /* Mellanrum mellan artiklar */
+}
+
+.articles article {
+    background-color: #f4f4f4; /* Ljus bakgrund på artiklar */
+    padding: 20px; /* Padding inuti varje artikel */
+    border-radius: 10px; /* Rundade hörn */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65); /* Skugga för artikelkortet */
+    width: 300px; /* Bestämd bredd på varje artikel */
+    text-align: left; /* Vänsterjusterad text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.articles article:hover {
+    transform: scale(1.05); /* Förstorar kortet något */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Lägg till mer djup */
+    background-color: #f25c05;
+}
+
+.articles article h3 {
+    margin: 0 0 10px; /* Avstånd ovanför rubriken */
+    font-size: 1.5rem; /* Större rubriktext */
+}
+
+.articles article p {
+    font-size: 1rem; /* Normal textstorlek */
+    margin-bottom: 10px; /* Mellanrum under texten */
+}
+
+.read-more {
+    color: #000000; /* Orange textfärg för "läs mer" */
+    text-decoration: none; /* Ingen understrykning */
+    font-weight: bold; /* Fet stil */
+}
+
+.read-more:hover {
+    text-decoration: underline; /* Understrykning vid hover */
+    color: #ffa470; /* Understrykning vid hover */
+}
+
+/* Footer */
+footer {
+    background-color: #222; /* Mörk bakgrund */
+    color: #fff; /* Vit text */
+    text-align: center; /* Centrerad text */
+    padding: 20px 0; /* Padding för utrymme */
+    margin-top: 0; /* Utrymme ovanför footer */
+}
+
+footer p {
+    margin: 5px 0; /* Små marginaler för text */
+}
+
+footer a {
+    color: #f25c05; /* Orange länkar */
+    text-decoration: none; /* Ingen understrykning */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Understrykning vid hover */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Social Icons */
+.social-icons a {
+    color: white; /* Vita ikoner */
+    font-size: 24px; /* Större ikoner */
+    margin: 0 10px; /* Mellanrum mellan ikoner */
+    text-decoration: none; /* Ingen understrykning */
+    transition: color 0.3s; /* Smidig färgövergång vid hover */
+}
+
+.social-icons a:hover {
+    color: #f25c05; /* Guld färg vid hover */
+}
+
+/* Responsiv Design */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .hero {
+        padding: 50px 10px;
+    }
+
+    .articles {
+        flex-direction: column; /* Staplar artiklarna på varandra */
+        align-items: center;
+    }
+
+    .articles article {
+        width: 90%; /* Gör artiklarna bredare för små skärmar */
+    }
+
+    nav ul li {
+        display: block; /* Gör att länkar staplas */
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+
+/*det är för medeleandet som kommer upp på sidan*/
+.bottom-header {
+    position: fixed;
+    top: 90px;
+    right: 0;
+    width: 20%;
+    height: auto;
+    background-color: #f25c05;
+    color: #ffffff;
+    text-align: center;
+    padding: 0. 0; /* Lägg till lite padding för att göra den tydligare */
+    font-size: 1.3rem; /* Gör texten lite större om den är för liten */
+    z-index: 1000; /* Se till att den ligger över andra element */
+    opacity: 0.7; 
+    border-top-left-radius: 10px; /* Rundade hörn på vänstra sidan */
+    border-bottom-left-radius: 10px; /* Rundade hörn på vänstra sidan (både uppe och nere kanter) */
+;
+}
+
+@media (max-width: 900px) {
+    .bottom-header {
+        display: none;
+    }
+}
+
+
+.sticky {
+    position: sticky;
+    top: 170px;
+}
+
+.fa-screwdriver-wrench{
+    display: block;  /* Gör så att den hamnar under texten */
+    font-size: 40px; /* Öka storleken */
+    margin-top: 16px; /* Lägg lite avstånd från texten */
+    margin-bottom: 0;
+    color: rgb(255, 255, 255);  /* Ändra färg om du vill */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #f4f4f4;
+}
+
+body.dark-mode header {
+    background-color: #333;
+}
+
+body.dark-mode .news {
+    background: linear-gradient(90deg, #444, #666); /* Gradient i mörkt läge */
+}
+
+body.dark-mode .cta {
+    background-color: #444;
+}
+
+body.dark-mode .cta:hover {
+    background-color: #222;
+}
+
+
+
+/*News fliken för att visa nyheter*/
+
+/* General Styles */
+/* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Sätter fonten till Arial */
+    line-height: 1.6; /* Radavstånd */
+    margin: 0; /* Tar bort marginaler från kroppen */
+    padding: 0; /* Tar bort padding */
+    color: #000000; /* Textfärg: svart */
+    background-color: #1b1b1b; /* Bakgrundsfärg: ljusgrå */
+}
+
+.container {
+    width: 100%; /* Behåller 100% av bredden av skärmen */
+    max-width: 1200px; /* Maxbredd på 1200px */
+    margin: 0 auto; /* Centrerar innehållet */
+    padding: 0 15px; /* Sidpadding */
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #3a3938, #000000); /* Mörk gradient */
+    color: #fff; /* Vit text */
+    padding: 20px 0; /* Vertikal padding för utrymme */
+}
+
+header .container {
+    display: flex; /* Använder Flexbox */
+    align-items: center; /* Vertikal centrering av innehållet */
+    justify-content: space-between; /* Dela upp logga och meny med utrymme mellan */
+}
+
+.logo {
+    width: 200px; /* Justerar loggans bredd */
+    height: flex; /* Bibehåller proportionerna */
+    margin-right: 20px; /* Mellanrum till nästa element */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);/* Förstorar loggan vid hover */
+}
+
+nav ul {
+    list-style: none; /* Tar bort punktlistan */
+    padding: 0; /* Tar bort padding */
+    margin: 5px 0 0; /* Justerar margin för listan */
+}
+
+nav ul li {
+    display: inline; /* Gör listan horisontell */
+    margin: 0 10px; /* Mellanrum mellan listobjekten */
+}
+
+nav ul li a {
+    color: #fff; /* Vit färg på länktext */
+    text-decoration: none; /* Tar bort understrykning från länkar */
+    font-weight: bold; /* Fetter texten */
+    transition: color 0.3s ease; /* Smidig övergång av färg */
+    font-size: larger;
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Understryker länk vid hover */
+    color: #f25c05; /* Byter färg till orange vid hover */
+}
+
+/* News Section */
+.news-container {
+    display: flex; /* Använder Flexbox för att placera news-main och news-sidebar bredvid varandra */
+    justify-content: space-between; /* Utrymme mellan news-main och news-sidebar */
+    padding: 20px;
+}
+
+.news-main {
+    flex: 3; /* Tar upp 3 delar av utrymmet */
+    margin-right: 20px; /* Mellanrum till news-sidebar */
+}
+
+.news-item {
+    background-color: #434343; /* Ljus bakgrund på artiklar */
+    padding: 20px; /* Padding inuti varje artikel */
+    border-radius: 0px; /* Rundade hörn */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65); /* Skugga för artikelkortet */
+    margin-bottom: 20px; /* Mellanrum mellan artiklar */
+    text-align: left; /* Vänsterjusterad text */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item img {
+    width: 400px; /* Gör bilden responsiv */
+    height: auto; /* Bibehåller proportionerna */
+    border-radius: 10px; /* Rundade hörn på bilden */
+}
+
+.news-item h2 {
+    margin: 10px 0; /* Avstånd ovanför och under rubriken */
+    font-size: 1.5rem; /* Större rubriktext */
+    color: #f25c05;
+}
+
+.news-item p {
+    font-size: 1rem; /* Normal textstorlek */
+    margin-bottom: 10px; /* Mellanrum under texten */
+    color: #f4f4f4;
+}
+
+.news-item a {
+    color: #f25c05; /* Orange textfärg för "läs mer" */
+    text-decoration: none; /* Ingen understrykning */
+    font-weight: bold; /* Fet stil */
+}
+
+.news-item a:hover {
+    text-decoration: underline; /* Understrykning vid hover */
+}
+
+/* Sidebar */
+.news-sidebar {
+    flex: 0.5; /* Tar upp 1 del av utrymmet */
+    padding: 20px; /* Padding inuti sidopanelen */
+    border-radius: 10px; /* Rundade hörn */
+    margin-top: 35px; 
+}
+
+.news-sidebar h3 {
+    margin: 0 0 10px; /* Avstånd ovanför och under rubriken */
+    font-size: 1.5rem; /* Större rubriktext */
+    color: #f4f4f4;
+}
+
+.news-sidebar .divider {
+    border: 0;
+    height: 1px;
+    background: #ffffff; /* Färg på linjen */
+    margin: 10px 0; /* Avstånd ovanför och under linjen */
+}
+
+.news-sidebar ul {
+    list-style: none; /* Tar bort punktlistan */
+    padding: 0; /* Tar bort padding */
+    margin: 0; /* Tar bort margin */
+}
+
+.news-sidebar ul li {
+    margin-bottom: 10px; /* Mellanrum mellan listobjekten */
+}
+
+.news-sidebar ul li a {
+    color: #f25c05; /* Orange textfärg för länkar */
+    text-decoration: none; /* Ingen understrykning */
+    font-weight: bold; /* Fet stil */
+}
+
+.news-sidebar ul li a:hover {
+    text-decoration: underline; /* Understrykning vid hover */
+}
+
+
+/* Responsiv Design */
+@media (max-width: 768px) {
+    .news-container {
+        flex-direction: column; /* Staplar news-main och news-sidebar vertikalt */
+    }
+
+    .news-main {
+        margin-right: 0; /* Tar bort marginalen till höger */
+    }
+
+    .news-sidebar {
+        margin-top: 20px; /* Mellanrum ovanför sidopanelen */
+    }
+
+    nav ul li {
+        display: block; /* Gör att länkar staplas */
+        margin: 10px 0;
+        text-align: center;
+    }
+}
