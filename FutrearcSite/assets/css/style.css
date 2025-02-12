@@ -1,3 +1,6 @@
+/* Först importera fonterna i början av filen */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif; /* Sätter fonten till Arial */
@@ -37,6 +40,7 @@ header .container {
 
 .logo:hover {
     transform: scale(1.1);/* Förstorar loggan vid hover */
+
 }
 
 nav ul {
@@ -468,6 +472,117 @@ nav ul li a:hover {
 }
 
 
+/* Lägg till denna regel bland dina andra modal-stilar */
+.modal {
+    display: none;  /* Detta är det enda vi behöver lägga till/ändra */
+}
+/* Lägg till dessa stilar i din befintliga CSS-fil */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1000;
+    overflow-y: auto;  /* Gör modalen scrollbar */
+    display: flex;     /* Använd flex för centrering */
+    align-items: center;  /* Vertikal centrering */
+    justify-content: center;  /* Horisontell centrering */
+}
+
+.modal-content {
+    position: relative;
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    padding: 2rem;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 16px;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    margin: 2rem auto;  /* Lägg till margin top och bottom */
+    max-height: 85vh;   /* Maxhöjd på 85% av viewport height */
+    overflow-y: auto;   /* Gör innehållet scrollbart */
+}
+
+/* Snygga till scrollbaren */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #f86700;
+    border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #e55d00;
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.learn-more {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-top: 1rem;
+    background-color: #f86700;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more:hover {
+    background-color: #e55d00;
+}
+
+.modal-content h2 {
+    font-family: 'Oswald', sans-serif;  /* Primär font */
+    color: #f86700;
+    font-size: 2.5rem;
+    font-weight: 700;  /* Justerat för Oswald */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #f86700;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+/* För övrig text i modalen kan du använda Open Sans */
+.modal-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;  /* Regular weight för brödtext */
+}
+
+/* Om du vill ha en understrykning eller border under rubriken */
+.modal-content h2 {
+    border-bottom: 3px solid #f86700;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
 /* Responsiv Design */
 @media (max-width: 768px) {
     .news-container {
@@ -488,3 +603,26 @@ nav ul li a:hover {
         text-align: center;
     }
 }
+
+/* För sektionsrubriker (som "Senaste Nyheterna") */
+.news h2, section h2 {
+    font-family: 'Oswald', sans-serif;
+    color: #f86700;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.message-box {
+    background: #f86700;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+

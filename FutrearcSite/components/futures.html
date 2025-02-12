@@ -1,0 +1,220 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<div class="futures-container">
+    <div class="future-box">
+        <i class="fa-solid fa-bell icon"></i>
+        <h3>Nyheter</h3>
+        <p>Håll dig uppdaterad med de senaste nyheterna och uppdateringarna från vår community.</p>
+        <button onclick="openModal('news-modal')" class="learn-more">Läs mer</button>
+    </div>
+
+    <div class="future-box">
+        <i class="fa-solid fa-desktop icon"></i>
+        <h3>Tutorials</h3>
+        <p>Utforska våra handledningar och lär dig nya färdigheter inom programmering.</p>
+        <button onclick="openModal('tutorials-modal')" class="learn-more">Läs mer</button>
+    </div>
+
+    <div class="future-box">
+        <i class="fa-solid fa-comments icon"></i>
+        <h3>Discord Community</h3>
+        <p>Gå med i vår aktiva Discord-community för diskussioner och samarbete.</p>
+        <button onclick="openModal('discord-modal')" class="learn-more">Läs mer</button>
+    </div>
+
+    <div class="future-box">
+        <i class="fa-solid fa-share-nodes icon"></i>
+        <h3>Sociala Medier</h3>
+        <p>Följ oss på våra sociala medier för att hålla dig uppdaterad om det senaste.</p>
+        <button onclick="openModal('social-modal')" class="learn-more">Läs mer</button>
+    </div>
+</div>
+
+
+<!-- Modals -->
+<div id="news-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('news-modal')">&times;</span>
+        <h2>Nyheter</h2>
+        <img src="/path-to-your-image.jpg" alt="Nyheter bild">
+        <p>Här kan du lägga till mer detaljerad information om nyheterna...</p>
+    </div>
+</div>
+
+<div id="tutorials-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('tutorials-modal')">&times;</span>
+        <h2>Tutorials</h2>
+        <img src="assets/images/tutorialsbanner.png" alt="Tutorials bild">
+        <p>Här kan du lägga till mer information om tutorials...</p>
+    </div>
+</div>
+
+<div id="discord-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('discord-modal')">&times;</span>
+        <h2>Discord Community</h2>
+        <img src="assets/images/discordbanner.png" alt="Discord bild">
+        <p class="intro-text">FutureArc skapades med en tydlig vision att både lära oss själva och dela med oss av kunskap. Vårt mål är att bygga ett tillgängligt och engagerande community för alla tech-intresserade i Sverige.</p>
+
+        <p>Vi är väl medvetna om att vi som arbetar inom tech tillbringar en stor del av vår tid framför skärmarna. Därför ville vi skapa en plats där vi kan stötta varandra, dela erfarenheter, samarbeta och nätverka  allt på ett sätt som smidigt integreras i vår digitala vardag.
+            
+            För att möjliggöra detta satsar vi helhjärtat på att utveckla vår Discord-community, där medlemmar kan diskutera, få hjälp och knyta värdefulla kontakter. Vår ambition sträcker sig dock längre än så. I framtiden vill vi utöka plattformen med funktioner som gör det enklare att hitta jobbmöjligheter, projekt och samarbeten direkt via vårt community.
+            
+            Tillsammans bygger vi FutureArc  en plats för kunskap, innovation och gemenskap inom tech. 🚀</p>
+    </div>
+</div>
+
+<div id="social-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('social-modal')">&times;</span>
+        <h2>Sociala Medier</h2>
+        <img src="assets/images/mediabanners.png" alt="Sociala Medier bild">
+        <p>Följ oss på våra sociala medier för att ta del av:</p>
+        
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/company/futurearcmedia" target="_blank" class="social-link">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://www.instagram.com/futurearcmedia" target="_blank" class="social-link">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@futurearcmedia" target="_blank" class="social-link">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://x.com/future_arcmedia" target="_blank" class="social-link">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .modal {
+        display: none;
+    }
+
+    .futures-container {
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 1.5rem;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .future-box {
+        flex: 0 1 230px;
+        padding: 1.8rem 1.4rem;
+        min-height: 230px;
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        text-align: left;
+        transition: transform 0.2s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .future-box .icon {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        background-color: #f86700;
+        width: 35px;
+        height: 35px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .future-box h3 {
+        color: #1a1b1e;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .future-box p {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    .learn-more {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        margin-top: 1rem;
+        background-color: #f86700;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .modal-content .intro-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        color: #f25c05;        
+    }
+
+    .modal-content p {
+        white-space: pre-line;
+        line-height: 1.6;
+        margin: 1rem 0;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+
+    .modal-content .bold-text {
+        font-weight: 700;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 2rem 0;
+    }
+
+    .social-link {
+        color: #f86700;
+        font-size: 2.5rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+        text-decoration: none;
+    }
+
+    .social-link:hover {
+        transform: translateY(-5px);
+        color: #e55d00;
+    }
+
+</style>
+
+<script>
+    // Definiera funktionerna i global scope
+    window.openModal = function(modalId) {
+        document.getElementById(modalId).style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+
+    window.closeModal = function(modalId) {
+        document.getElementById(modalId).style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+
+    // Stäng modal när man klickar utanför
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+</script>
