@@ -35,11 +35,12 @@ header .container {
     width: 200px; /* Justerar loggans bredd */
     height: flex; /* Bibehåller proportionerna */
     margin-right: 20px; /* Mellanrum till nästa element */
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo:hover {
     transform: scale(1.1);/* Förstorar loggan vid hover */
+    filter: brightness(0.5);
 
 }
 
@@ -134,7 +135,7 @@ nav ul li a:hover {
     color: #f25c05; /* Ändra färgen till orange eller vilken färg du vill */
     font-size: 2rem; /* Justera storleken om det behövs */
     text-align: center; /* Centrerar texten */
-    margin-bottom: 20px; /* Justera marginalen om det behövs */
+    margin-bottom: 30px; /* Justera marginalen om det behövs */
 }
 
 .articles {
@@ -212,7 +213,7 @@ footer a:hover {
 /* Social Icons */
 .social-icons a {
     color: white; /* Vita ikoner */
-    font-size: 24px; /* Större ikoner */
+    font-size: 20px; /* Större ikoner */
     margin: 0 10px; /* Mellanrum mellan ikoner */
     text-decoration: none; /* Ingen understrykning */
     transition: color 0.3s; /* Smidig färgövergång vid hover */
@@ -252,28 +253,33 @@ footer a:hover {
 /*det är för medeleandet som kommer upp på sidan*/
 .bottom-header {
     position: fixed;
-    top: 90px;
-    right: 0;
-    width: 20%;
-    height: auto;
-    background-color: #f25c05;
-    color: #ffffff;
+    top: 80px;
+    right: 0;  /* Sätt till 0 för att sitta helt mot kanten */
+    width: auto;
+    max-width: 400px;
+    background: #f86700;
+    z-index: 1000;
+    transition: all 0.5s ease;
+    border-radius: 8px 0 0 8px;  /* Bara rundade hörn på vänster sida */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-header.hide {
+    transform: translateX(120%);
+    opacity: 0;
+}
+
+.medelande {
     text-align: center;
-    padding: 0. 0; /* Lägg till lite padding för att göra den tydligare */
-    font-size: 1.3rem; /* Gör texten lite större om den är för liten */
-    z-index: 1000; /* Se till att den ligger över andra element */
-    opacity: 0.7; 
-    border-top-left-radius: 10px; /* Rundade hörn på vänstra sidan */
-    border-bottom-left-radius: 10px; /* Rundade hörn på vänstra sidan (både uppe och nere kanter) */
-;
+    padding: 12px 20px;
 }
 
-@media (max-width: 900px) {
-    .bottom-header {
-        display: none;
-    }
+.medelande h6 {
+    margin: 0;
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
-
 
 .sticky {
     position: sticky;
@@ -381,6 +387,17 @@ nav ul li a:hover {
 }
 
 /* News Section */
+.news-section-title {
+    color: #f86700;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;  /* Minskat margin-bottom till 15px */
+    letter-spacing: 1px;
+}
+
+
+
 .news-container {
     display: flex; /* Använder Flexbox för att placera news-main och news-sidebar bredvid varandra */
     justify-content: space-between; /* Utrymme mellan news-main och news-sidebar */
@@ -393,41 +410,53 @@ nav ul li a:hover {
 }
 
 .news-item {
-    background-color: #434343; /* Ljus bakgrund på artiklar */
-    padding: 20px; /* Padding inuti varje artikel */
-    border-radius: 0px; /* Rundade hörn */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65); /* Skugga för artikelkortet */
-    margin-bottom: 20px; /* Mellanrum mellan artiklar */
-    text-align: left; /* Vänsterjusterad text */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #1a1b1e;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+    margin-bottom: 20px;
+    text-align: left;
+    gap: 15px;
 }
 
 .news-item img {
-    width: 400px; /* Gör bilden responsiv */
-    height: auto; /* Bibehåller proportionerna */
-    border-radius: 10px; /* Rundade hörn på bilden */
+    width: 200px;  /* Mindre bildstorlek */
+    height: 150px; /* Behåll proportionerna */
+    object-fit: cover; /* Ser till att bilden täcker ytan snyggt */
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 .news-item h2 {
-    margin: 10px 0; /* Avstånd ovanför och under rubriken */
-    font-size: 1.5rem; /* Större rubriktext */
-    color: #f25c05;
+    color: #f86700;
+    margin: 10px 0;
+    font-size: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .news-item p {
-    font-size: 1rem; /* Normal textstorlek */
-    margin-bottom: 10px; /* Mellanrum under texten */
     color: #f4f4f4;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .news-item a {
-    color: #f25c05; /* Orange textfärg för "läs mer" */
-    text-decoration: none; /* Ingen understrykning */
-    font-weight: bold; /* Fet stil */
+    color: #f86700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hover effekter endast på text och länkar */
+.news-item h2:hover {
+    color: white;
+    transform: translateX(5px);
 }
 
 .news-item a:hover {
-    text-decoration: underline; /* Understrykning vid hover */
+    color: white;
+    transform: translateX(5px);
 }
 
 /* Sidebar */
@@ -472,11 +501,11 @@ nav ul li a:hover {
 }
 
 
-/* Lägg till denna regel bland dina andra modal-stilar */
+/*Modal*/
 .modal {
     display: none;  /* Detta är det enda vi behöver lägga till/ändra */
 }
-/* Lägg till dessa stilar i din befintliga CSS-fil */
+
 .modal {
     display: none;
     position: fixed;
@@ -504,7 +533,20 @@ nav ul li a:hover {
     margin: 2rem auto;  /* Lägg till margin top och bottom */
     max-height: 85vh;   /* Maxhöjd på 85% av viewport height */
     overflow-y: auto;   /* Gör innehållet scrollbart */
+    animation: modalFadeIn 0.4s ease-out;
 }
+/*Animation för modalen*/
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Snygga till scrollbaren */
 .modal-content::-webkit-scrollbar {
@@ -526,11 +568,16 @@ nav ul li a:hover {
 }
 
 .close-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 1.5rem;
+    color: #f86700;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #ff8533;
 }
 
 .modal-content img {
@@ -614,7 +661,7 @@ nav ul li a:hover {
     letter-spacing: 1px;
 }
 
-.message-box {
+/*.message-box {
     background: #f86700;
     color: white;
     padding: 20px;
@@ -623,6 +670,163 @@ nav ul li a:hover {
     position: relative;
     max-width: 600px;
     margin: 20px auto;
+}*//*Jag vet inte om jag behöver detta*/
+
+
+/*Footer*/
+.footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.footer .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: #1a1b1e;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    transform: translateY(0);
+}
+
+.footer .social-link i {
+    color: #f86700;
+    font-size: 1.4rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.footer .social-link:hover {
+    transform: translateY(-8px);
+    background-color: #f86700;
+    box-shadow: 0 5px 15px rgba(248, 103, 0, 0.4);
+}
+
+.footer .social-link:hover i {
+    color: white;
+    transform: scale(1.1);
+}
+
+
+
+
+/*FAQ fliken för att visa FAQ*/
+.faq-section {
+    padding: 40px 0;  /* Ta bort sidopadding */
+    width: 100%;      /* Full bredd */
+    background: linear-gradient(90deg, #3a3938, #000000); /* Bakgrundsfärg som täcker hela bredden */
+}
+
+.faq-container {
+    max-width: 800px;  /* Begränsa bredden på innehållet */
+    margin: 30px auto; /* Centrera innehållet */
+    padding: 0 20px;   /* Lägg till padding på sidorna av innehållet */
+}
+
+.faq-section-title {
+    color: #f86700;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.faq-divider {
+    max-width: 800px;  /* Samma bredd som container */
+    margin: 0 auto;    /* Centrera linjen */
+    height: 3px;
+    background-color: #f86700;
+    margin-bottom: 15px;
+}
+
+.faq-item {
+    background: #1a1b1e;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 20px;
+    border: 2px solid #f86700;
+    box-shadow: 0 0 15px rgba(248, 103, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 0 20px rgba(248, 103, 0, 0.5);
+    border-color: #ff8533;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-question h3 {
+    color: #f4f4f4;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.faq-toggle {
+    background: none;
+    border: none;
+    color: #f86700;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth rotation för plus-ikonen */
+}
+
+.faq-answer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Smidigare övergång */
+    padding: 0 15px;
+}
+
+.faq-answer p {
+    color: #f4f4f4;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg); /* Rotera plus till kryss */
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Tillräckligt högt för innehållet */
+    opacity: 1;
+    padding: 15px;
+}
+
+/*Modal knappar */
+.learn-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f86700;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.learn-more:hover {
+    background-color: #ff8533; /* Ljusare orange */
+    transform: translateY(-2px); /* Liten uppåtrörelse */
+    box-shadow: 0 5px 15px rgba(248, 103, 0, 0.4); /* Orange skugga */
+}
+
+.learn-more:active {
+    transform: translateY(0); /* Återgår när man klickar */
 }
 
 
