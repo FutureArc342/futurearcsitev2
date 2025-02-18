@@ -1,6 +1,7 @@
 /* Först importera fonterna i början av filen */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
 
+
 /* General Styles */
 body {
     font-family: Arial, sans-serif; /* Sätter fonten till Arial */
@@ -79,12 +80,18 @@ nav ul li a:hover {
 }
 
 .hero h2 {
-    font-size: 3.5rem; /* Större fontstorlek */
-    margin: 0 0 10px; /* Justerar marginaler */
+    font-family: 'Oswald', sans-serif;  /* Eller vilken font du vill använda */
+    font-size: 3.5rem;
+    margin: 0 0 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .hero p {
-    font-size: 1.5rem; /* Mellanstor text */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
 }
 
 /* Call-to-Action Button */
@@ -94,6 +101,7 @@ nav ul li a:hover {
     color: #fff; /* Vit text */
     padding: 10px 20px; /* Padding runt texten */
     text-decoration: none; /* Ingen understrykning */
+    font-weight: 900;
     font-size: 1rem; /* Standard textstorlek */
     margin-top: 20px; /* Utrymme ovanför */
     border-radius: 5px; /* Rundade hörn */
@@ -132,33 +140,38 @@ nav ul li a:hover {
 }
 
 .news h2 {
-    color: #f25c05; /* Ändra färgen till orange eller vilken färg du vill */
-    font-size: 2rem; /* Justera storleken om det behövs */
-    text-align: center; /* Centrerar texten */
-    margin-bottom: 30px; /* Justera marginalen om det behövs */
+    color: #f86700;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 1rem;  
+    margin-bottom: 4rem;
 }
 
 .articles {
-    display: flex; /* Flexbox för att arrangera artiklarna */
-    justify-content: space-around; /* Utrymme mellan artiklar */
-    flex-wrap: wrap; /* Gör att artiklarna kan brytas på nya rader */
-    gap: 20px; /* Mellanrum mellan artiklar */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: -2rem;  /* Negativt margin för att flytta artiklarna uppåt */
 }
 
 .articles article {
-    background-color: #f4f4f4; /* Ljus bakgrund på artiklar */
-    padding: 20px; /* Padding inuti varje artikel */
-    border-radius: 10px; /* Rundade hörn */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65); /* Skugga för artikelkortet */
-    width: 300px; /* Bestämd bredd på varje artikel */
-    text-align: left; /* Vänsterjusterad text */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+    width: 300px;
+    text-align: left;
+    border: 2px solid transparent; /* Transparent border som grund */
+    transition: all 0.3s ease;
 }
 
 .articles article:hover {
-    transform: scale(1.05); /* Förstorar kortet något */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Lägg till mer djup */
-    background-color: #f25c05;
+    border-color: #f86700; /* Orange border vid hover */
+    box-shadow: 0 0 20px rgba(248, 103, 0, 0.5); /* Glödande orange effekt */
+    transform: none; /* Ta bort scale effekten */
+    background-color: #f4f4f4; /* Behåll original bakgrundsfärgen */
 }
 
 .articles article h3 {
@@ -284,14 +297,6 @@ footer a:hover {
 .sticky {
     position: sticky;
     top: 170px;
-}
-
-.fa-screwdriver-wrench{
-    display: block;  /* Gör så att den hamnar under texten */
-    font-size: 40px; /* Öka storleken */
-    margin-top: 16px; /* Lägg lite avstånd från texten */
-    margin-bottom: 0;
-    color: rgb(255, 255, 255);  /* Ändra färg om du vill */
 }
 
 /* Dark Mode */
@@ -529,7 +534,7 @@ nav ul li a:hover {
     max-width: 800px;
     border-radius: 16px;
     color: #fff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     margin: 2rem auto;  /* Lägg till margin top och bottom */
     max-height: 85vh;   /* Maxhöjd på 85% av viewport height */
     overflow-y: auto;   /* Gör innehållet scrollbart */
@@ -716,7 +721,7 @@ nav ul li a:hover {
 
 /*FAQ fliken för att visa FAQ*/
 .faq-section {
-    padding: 40px 0;  /* Ta bort sidopadding */
+    padding: 8px 0;  /* Ta bort sidopadding */
     width: 100%;      /* Full bredd */
     background: linear-gradient(90deg, #3a3938, #000000); /* Bakgrundsfärg som täcker hela bredden */
 }
@@ -729,20 +734,21 @@ nav ul li a:hover {
 
 .faq-section-title {
     color: #f86700;
-    font-size: 2.5rem;
+    font-size: 2.9rem;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
     width: 100%;
     display: block;
+    margin-bottom: 1rem;  /* Lägg till margin under titeln */
 }
 
 .faq-divider {
-    max-width: 800px;  /* Samma bredd som container */
-    margin: 0 auto;    /* Centrera linjen */
+    max-width: 800px;
+    margin: 0 auto;
     height: 3px;
     background-color: #f86700;
-    margin-bottom: 15px;
+    margin-bottom: 2rem;  /* Öka margin under divider */
 }
 
 .faq-item {
@@ -828,5 +834,16 @@ nav ul li a:hover {
 .learn-more:active {
     transform: translateY(0); /* Återgår när man klickar */
 }
+
+.section-divider {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #f86700, transparent);
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Alternativt kan du använda denna stil för en mer solid look */
 
 
