@@ -1,13 +1,65 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Om oss</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/navbar.js"></script>
 </head>
-    <div>
+<body onload="includeHTML()">
+    <div include-html="components/header.html"></div>
+    <hr class="section-divider">
+    <div class="about-container">
         <h1>Om oss</h1>
+        <p>Subheading for description or instructions</p>
+        <p>Body text for your whole article or post. We'll put in some lorem ipsum to show how a filled-out page might look:</p>
+        <p>Excepeteur efficient emerging, minim veniam anim aute carefully curated Ginza conversation exquisite perfect nostrud nisi intricate Content. Qui international first-class nulla ut. Punctual adipiscing, essential lovely queen tempor eiusmod irure. Exclusive izakaya charming Scandinavian impeccable aute quality of life soft power pariatur Melbourne coeaceat discerning. Qui wardrobe aliquip, et Porter destination Toto remarkable officia Helsinki excepteur Basset hound. Zürich sleepy perfect consectetur.</p>
+        <hr class="section-divider-about">
+        <div class="contact-section">
+            <div class="contact-info">
+                <h2>Lätt att kontakta oss via kontaktformuläret</h2>
+                <p><span class="email-label">Email:</span> Futurearc@gmail.com</p>
+                <div class="social-media-icons-contact">
+                    <a href="https://www.linkedin.com/company/futurearcmedia" class="social-link" aria-label="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/future_arcmedia" class="social-link" aria-label="Twitter" target="_blank">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/futurearcmedia" class="social-link" aria-label="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@futurearcmedia" class="social-link" aria-label="TikTok" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a> 
+                </div>
+            </div>
+            <div class="contact-form">
+                <h2>Kontakta oss</h2>
+                <form>
+                    <input type="text" name="first_name" placeholder="Ditt namn">
+                    <input type="email" name="email" placeholder="Din e-postadress">
+                    <textarea name="message" placeholder="Skriv till oss din åsikt eller frågor"></textarea>
+                    <button type="submit" class="send-button">Skicka</button>
+                </form>
+            </div>
+        </div>
     </div>
-<body>
-    <h2>Vi är futurearc vi gör allt bra tänk på bahabdadhebcdhchbdhcbhdhcbdicbadbcahdkcbadhbcak</h2>
+    <hr class="section-divider">
+    <footer>
+        <div class="footer" include-html="components/footer.html"></div>
+    </footer>
+    <script>
+    function autoResize(textarea) {
+        textarea.style.height = 'auto'; // Återställer höjden
+        textarea.style.height = textarea.scrollHeight + 'px'; // Sätter höjden baserat på innehållet
+    }
+    </script>
 </body>
 </html>
+
+
+

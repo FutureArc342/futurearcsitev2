@@ -20,7 +20,7 @@ body {
 }
 
 /* Header Styles */
-header {
+.header {
     background: linear-gradient(90deg, #3a3938, #000000); /* Mörk gradient */
     color: #fff; /* Vit text */
     padding: 20px 0; /* Vertikal padding för utrymme */
@@ -171,7 +171,7 @@ nav ul li a:hover {
 
 .articles article:hover {
     border-color: #f86700; /* Orange border vid hover */
-    box-shadow: 0 0 20px rgba(248, 103, 0, 0.5); /* Glödande orange effekt */
+    box-shadow: 0 0 35px rgba(248, 103, 0, 0.5); /* Glödande orange effekt */
     transform: none; /* Ta bort scale effekten */
     background-color: #f4f4f4; /* Behåll original bakgrundsfärgen */
 }
@@ -1085,4 +1085,230 @@ nav ul li a:hover {
     transform: translateY(0);
 }
 
+/* Specific styles for about page */
+.about-container {
+    color: white; /* All text in white */
+    background-color: linear-gradient(90deg, #3a3938, #000000); /* Keeping the background as usual */
+    padding: 20px;
+    text-align: center; /* Centrerar all text */
+}
 
+.about-container h1 {
+    margin: 0 auto; /* Centrerar elementen horisontellt */
+    max-width: 800px; /* Begränsar bredden för bättre läsbarhet */
+    color: #f86700;
+    font-size: 2.5rem;
+    font-weight: 700;    
+}
+
+.about-container p, .about-container h2 {
+    margin: 0 auto; /* Centrerar elementen horisontellt */
+    max-width: 800px; /* Begränsar bredden för bättre läsbarhet */
+}
+
+.section-divider-about {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, transparent, #f86700, transparent);
+    margin: 40px 0; /* Ger utrymme ovanför och nedanför linjen */
+}
+
+.about-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrerar formelementen */
+    gap: 10px;
+    max-width: 500px; /* Begränsar formens bredd */
+    margin: 0 auto; /* Centrerar formen */
+}
+
+.about-container input, .about-container textarea {
+    resize: none; /* Förhindrar manuell storleksändring */
+    width: 100%; /* Full bredd inom formens maxbredd */
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #f86700;
+    border-radius: 8px;
+}
+
+.contact-form h2{
+    margin: 0 auto; /* Centrerar elementen horisontellt */
+    max-width: 800px; /* Begränsar bredden för bättre läsbarhet */
+    color: #f86700;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.about-container button {
+    padding: 12px 25px;
+    background: #f86700;
+    font-size: 1.2rem;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Lägger till en pekare för att indikera klickbarhet */
+    border-radius: 8px;
+}
+
+.about-container button:hover {
+    background: #ffcaa4; /* Mörkare bakgrund vid hover */
+}
+
+.social-media-section {
+    text-align: center;
+    padding: 20px; /* Ljusgrå bakgrund för sektionen */
+}
+
+/* Scroll to top button */
+
+.scroll-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: -60px; /* Startar gömd under sidans botten */
+    padding: 10px 20px;
+    background-color: #f25c05;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.scroll-to-top:hover {
+    background-color: #e24e1b;
+}
+
+
+
+
+.contact-form {
+    background-color: linear-gradient(90deg, #3a3938, #000000); /* Mörk bakgrund */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.contact-form button.send-button {
+    background-color: #f25c05; /* Orange bakgrund */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button.send-button:hover {
+    background-color: #e24e1b; /* Mörkare orange vid hover */
+    color: #fff; /* Vit textfärg */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Lägger till en skugga för djup */
+    transform: scale(1.05); /* Lätt förstoringseffekt */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s; /* Smidig övergång för alla egenskaper */
+}
+
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    color: white;
+    background: url(../images/bannercontactus.png) no-repeat center center/cover;
+    background-size: 1184px 380px; /* Specifika mått kan justeras efter behov */
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+    margin-bottom: -20px;
+
+}
+
+.email-label {
+    font-weight: 800;
+    color: #ffffff;
+    margin-right: 5px;
+}
+
+
+.contact-info {
+    width: 40%;
+    padding: 20px;
+}
+
+.contact-info h2 {
+    color: #f25c05;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.social-media-icons-contact {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.social-media-icons-contact a {
+    color: white;
+    font-size: 34px;
+    transition: color 0.3s ease;
+}
+
+.social-media-icons-contact a:hover {
+    color: #f25c05; /* Orange färg vid hover */
+}
+
+.contact-form {
+    width: 50%;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.05); /* Svart bakgrund med 50% opacitet */
+    backdrop-filter: blur(5px); /* Suddig effekt */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.contact-form button.send-button {
+    background-color: #f25c05; /* Grundfärg */
+    color: white;
+    border: 2px solid transparent; /* Ingen synlig gräns initialt */
+    padding: 9px 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smidig övergång för alla egenskaper */
+}
+
+.contact-form button.send-button:hover {
+    background-color: transparent; /* Bakgrund blir transparent */
+    color: #f25c05; /* Textfärg ändras till knappens ursprungliga bakgrundsfärg */
+    border: 2px solid #f25c05; /* Lägger till en orange gräns */
+    transform: translateY(-2px); /* Flyttar knappen lite uppåt */
+    box-shadow: 0 5px 15px rgba(248, 103, 0, 0.4); /* Lägger till en skugga för djup */
+}

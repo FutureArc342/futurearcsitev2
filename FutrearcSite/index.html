@@ -27,6 +27,28 @@
     <div class="section-divider"></div>
     <div include-html="components/faq.html"></div>
     <div class="section-divider"></div>
+    <button onclick="scrollToTop()" class="scroll-to-top">Ta mig upp</button>
     <div include-html="components/footer.html"></div>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        </script>
+    <script>
+        window.onscroll = function() {
+            var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+            var windowHeight = window.innerHeight;
+            var fullHeight = document.body.scrollHeight;
+            
+            var button = document.querySelector('.scroll-to-top');
+            
+            // Visa knappen endast när användaren är nära botten av sidan
+            if (fullHeight - (scrollPosition + windowHeight) <= 200) {
+                button.style.bottom = '20px'; // Flyttar upp knappen så den är synlig
+            } else {
+                button.style.bottom = '-60px'; // Gömmer knappen
+            }
+        };
+    </script>
 </body>
 </html>
