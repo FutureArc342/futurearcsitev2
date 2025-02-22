@@ -75,7 +75,7 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background: url(../images/bannerny.jpg) no-repeat center center/cover;
+    background: url(../images/bannercontactus.png) no-repeat center center/cover;
     color: #fff; /* Vit text */
     text-align: center; /* Centrerad text */
     padding: 100px 20px; /* Stor padding för utrymme */
@@ -602,6 +602,8 @@ nav ul li a:hover {
     padding: 0.5rem 1rem;
     margin-top: 1rem;
     background-color: #f86700;
+    font-weight: bolder;
+    font-size: 1rem;
     color: white;
     border: none;
     border-radius: 8px;
@@ -1183,7 +1185,8 @@ nav ul li a:hover {
 
 
 .contact-form {
-    background-color: linear-gradient(90deg, #3a3938, #000000); /* Mörk bakgrund */
+    background-color: rgba(0, 0, 0, 0.5); /* Svart bakgrund med 50% opacitet */
+    backdrop-filter: blur(10px); /* Suddig effekt */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -1211,7 +1214,7 @@ nav ul li a:hover {
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .contact-form button.send-button:hover {
@@ -1236,13 +1239,6 @@ nav ul li a:hover {
     margin-bottom: -20px;
 
 }
-
-.email-label {
-    font-weight: 800;
-    color: #ffffff;
-    margin-right: 5px;
-}
-
 
 .contact-info {
     width: 40%;
@@ -1312,3 +1308,69 @@ nav ul li a:hover {
     transform: translateY(-2px); /* Flyttar knappen lite uppåt */
     box-shadow: 0 5px 15px rgba(248, 103, 0, 0.4); /* Lägger till en skugga för djup */
 }
+
+
+
+/* Detta kan man tabort senare när vi har alla dessa futures på plats dvs. discord, tutorials, nyheter */
+.future-box {
+    position: relative; /* Lägger till relativ positionering så att absolut positionerade barn kan positioneras korrekt */
+    /* Övriga stilar behålls */
+}
+
+.coming-soon {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    font-weight: bolder;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease; /* Smidig övergång för alla egenskaper */
+}
+
+.coming-soon:hover {
+    animation: vibrate 0.5s linear infinite;
+}
+
+
+
+.future-box:hover .coming-soon {
+    animation: glowColorChange 1s ease-in-out infinite alternate;
+}
+
+@keyframes glowColorChange {
+    0% {
+        background-color: #f86700; /* Ursprunglig orange färg */
+        box-shadow: 0 0 5px #f86700; /* Lägger till en svag glöd runt etiketten */
+    }
+    50% {
+        background-color: #ff4500; /* Mellanfärg, ljusare röd */
+        box-shadow: 0 0 10px #ff4500; /* Starkare glöd */
+    }
+    100% {
+        background-color: #ff0000; /* Röd färg */
+        box-shadow: 0 0 15px #ff0000; /* Starkaste glöden */
+    }
+}
+
+
+.roadmap-section {
+    text-align: center; /* Centrerar innehållet */
+    margin-top: 0; /* Lägger till utrymme ovanför sektionen */
+    margin-bottom: -7px; /* Lägger till utrymme nedanför sektionen */
+    overflow: hidden; /* Döljer innehållet som är utanför sektionen */
+}
+
+.roadmap-section h2 {
+    color: #333; /* Mörk textfärg för kontrast */
+    font-size: 1.5rem; /* Större textstorlek */
+    margin-bottom: 10px; /* Utrymme mellan rubrik och bild */
+}
+
+.roadmap-section img {
+    max-width: 100%; /* Gör så att bilden inte blir större än sin container */
+    height: auto; /* Behåller bildens proportioner */
+}
+
