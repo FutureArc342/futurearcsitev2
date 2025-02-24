@@ -1,6 +1,6 @@
 /* Först importera fonterna i början av filen */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 /* General Styles */
 body {
@@ -158,43 +158,47 @@ nav ul li a:hover {
     margin-top: -2rem;  /* Negativt margin för att flytta artiklarna uppåt */
 }
 
+
 .articles article {
-    background-color: #f4f4f4;
+    background-color: #1a1a1a;
+    border: 2px solid #f86700;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 0 15px rgba(248, 103, 0, 0.3);
     width: 300px;
     text-align: left;
     border: 2px solid transparent; /* Transparent border som grund */
     transition: all 0.3s ease;
 }
 
+
 .articles article:hover {
     border-color: #f86700; /* Orange border vid hover */
     box-shadow: 0 0 35px rgba(248, 103, 0, 0.5); /* Glödande orange effekt */
-    transform: none; /* Ta bort scale effekten */
-    background-color: #f4f4f4; /* Behåll original bakgrundsfärgen */
+    transform: scale(1.05); /* Ta bort scale effekten */
 }
 
 .articles article h3 {
     margin: 0 0 10px; /* Avstånd ovanför rubriken */
     font-size: 1.5rem; /* Större rubriktext */
+    color: #fff;
 }
 
 .articles article p {
+    color: #fff;
     font-size: 1rem; /* Normal textstorlek */
     margin-bottom: 10px; /* Mellanrum under texten */
 }
 
 .read-more {
-    color: #000000; /* Orange textfärg för "läs mer" */
+    color: #fff; /* Orange textfärg för "läs mer" */
     text-decoration: none; /* Ingen understrykning */
     font-weight: bold; /* Fet stil */
 }
 
 .read-more:hover {
-    text-decoration: underline; /* Understrykning vid hover */
-    color: #ffa470; /* Understrykning vid hover */
+    color: #ff8741; /* Understrykning vid hover */
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -441,6 +445,7 @@ nav ul li a:hover {
     margin: 10px 0;
     font-size: 1.5rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .news-item p {
@@ -448,6 +453,7 @@ nav ul li a:hover {
     font-size: 1rem;
     margin-bottom: 10px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .news-item a {
@@ -476,10 +482,12 @@ nav ul li a:hover {
     margin-top: 35px; 
 }
 
+
 .news-sidebar h3 {
     margin: 0 0 10px; /* Avstånd ovanför och under rubriken */
     font-size: 1.5rem; /* Större rubriktext */
     color: #f4f4f4;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .news-sidebar .divider {
@@ -507,6 +515,21 @@ nav ul li a:hover {
 
 .news-sidebar ul li a:hover {
     text-decoration: underline; /* Understrykning vid hover */
+}
+
+/*detta är för bilden som reklamerar för sociala medier*/
+.social-media-reklam {
+    width: 300px;
+    height: 126px;
+    background-color: transparent;
+    margin-bottom: 10px;
+    margin-top: -50px;
+}
+
+.social-media-reklam img {
+    width: 300px;
+    height: 126px;
+    object-fit: contain;
 }
 
 
@@ -844,13 +867,15 @@ nav ul li a:hover {
 .section-divider {
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, transparent, #f86700, transparent);
+    background: #f25c05;
     margin: 0;
     padding: 0;
     border: none;
 }
 
-/* Alternativt kan du använda denna stil för en mer solid look */
+/* Alternativt kan du använda denna stil för en mer solid look 
+linear-gradient(90deg, transparent, #f86700, transparent);*/
+
 
 /* Hamburger menu och navigation */
 .nav-container {
@@ -1369,8 +1394,17 @@ nav ul li a:hover {
     margin-bottom: 10px; /* Utrymme mellan rubrik och bild */
 }
 
-.roadmap-section img {
+.roadmap-section gif {
     max-width: 100%; /* Gör så att bilden inte blir större än sin container */
     height: auto; /* Behåller bildens proportioner */
+    
 }
 
+.roadmap-about img {
+    width: 100vw; /* Sätter bilden till att vara lika bred som viewporten */
+    height: auto; /* Behåller bildens proportioner */
+    object-fit: fill; /* Ser till att bilden täcker tillgängligt utrymme utan att klippas */
+    display: block; /* Tar bort eventuellt extra utrymme under bilden */
+    margin: 0; /* Tar bort marginal */
+    padding: 0; /* Tar bort padding */
+}

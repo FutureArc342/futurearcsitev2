@@ -22,3 +22,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, 100); // Kort fördröjning för att säkerställa att include.js är klar
 });
+
+
