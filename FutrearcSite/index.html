@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="UTF-8">
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/include.js"></script>
     <script src="assets/js/logocolor.js"></script>
-    <script src="assets/js/bottomheader.js"></script>
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/faq.js"></script>
@@ -16,14 +15,12 @@
 <body onload="includeHTML()">
     <div include-html="components/medelande.html"></div>
     <div include-html="components/header.html"></div>
-    <div class="section-divider"></div>
+    <div class="section-divider-hero"></div>
     <div include-html="components/hero.html"></div>
-    <div class="section-divider"></div>
-    <div include-html="components/intro.html"></div>
     <div class="section-divider"></div>
     <div include-html="components/roadmap.html"></div>
     <div class="section-divider"></div>
-    <div include-html="components/news.html"></div>
+    <div include-html="components/news-articles.html"></div>
     <div class="section-divider"></div>
     <div include-html="components/futures.html"></div>
     <div class="section-divider"></div>
@@ -52,5 +49,7 @@
             }
         };
     </script>
+    <!-- Js för att cta knappen ska scrolla till futures sectionen direkt -->
+    <script src="assets/js/script.js"></script> 
 </body>
 </html>

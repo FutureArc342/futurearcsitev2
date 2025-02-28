@@ -14,15 +14,15 @@
 <body onload="includeHTML()">
     <div include-html="components/header.html"></div>
     <hr class="section-divider">
-    <div class="about-container">
         <div class="roadmap-about">
             <img src="assets/images/timeline.png" alt="Roadmap">
         </div>   
         <div class="section-divider"></div>
-        <h1>Om oss</h1>
-        <p>Subheading for description or instructions</p>
-        <p>Body text for your whole article or post. We'll put in some lorem ipsum to show how a filled-out page might look:</p>
-        <p>Excepeteur efficient emerging, minim veniam anim aute carefully curated Ginza conversation exquisite perfect nostrud nisi intricate Content. Qui international first-class nulla ut. Punctual adipiscing, essential lovely queen tempor eiusmod irure. Exclusive izakaya charming Scandinavian impeccable aute quality of life soft power pariatur Melbourne coeaceat discerning. Qui wardrobe aliquip, et Porter destination Toto remarkable officia Helsinki excepteur Basset hound. Zürich sleepy perfect consectetur.</p>
+        <div class="about-container">
+            <h1>Om oss</h1>
+            <p>Subheading for description or instructions</p>
+            <p>Body text for your whole article or post. We'll put in some lorem ipsum to show how a filled-out page might look:</p>
+            <p>Excepeteur efficient emerging, minim veniam anim aute carefully curated Ginza conversation exquisite perfect nostrud nisi intricate Content. Qui international first-class nulla ut. Punctual adipiscing, essential lovely queen tempor eiusmod irure. Exclusive izakaya charming Scandinavian impeccable aute quality of life soft power pariatur Melbourne coeaceat discerning. Qui wardrobe aliquip, et Porter destination Toto remarkable officia Helsinki excepteur Basset hound. Zürich sleepy perfect consectetur.</p>
         <hr class="section-divider-about">
         <div class="contact-section">
             <div class="contact-info">
@@ -45,15 +45,16 @@
             </div>
             <div class="contact-form">
                 <h2>Kontakta oss</h2>
-                <form>
-                    <input type="text" name="first_name" placeholder="Ditt namn">
-                    <input type="email" name="email" placeholder="Din e-postadress">
-                    <textarea name="message" placeholder="Skriv till oss din åsikt eller frågor"></textarea>
+                <form action="/send-email" method="POST">
+                    <input type="text" name="first_name" placeholder="Ditt namn" required>
+                    <input type="email" name="email" placeholder="Din e-postadress" required>
+                    <textarea name="message" placeholder="Skriv till oss din åsikt eller frågor" required></textarea>
                     <button type="submit" class="send-button">Skicka</button>
                 </form>
             </div>
         </div>
     </div>
+</div>
     <hr class="section-divider">
     <footer>
         <div class="footer" include-html="components/footer.html"></div>
@@ -64,6 +65,19 @@
         textarea.style.height = textarea.scrollHeight + 'px'; // Sätter höjden baserat på innehållet
     }
     </script>
+<!--Jag försökte lägga till style css men då border effekten inte fungerade så jag lägger här -->
+<style> 
+    .contact-form input{
+        background-color: #000000;
+        color: #f86700;
+        border: 2px solid #f86700;
+    }
+    .contact-form textarea{
+        background-color: #000000;
+        color: #f86700;
+        border: 2px solid #f86700;
+    }
+</style>
 </body>
 </html>
 

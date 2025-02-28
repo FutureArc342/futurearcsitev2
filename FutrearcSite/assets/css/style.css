@@ -1,6 +1,19 @@
 /* Först importera fonterna i början av filen */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Iceland&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+
+
+* {
+    box-sizing: border-box;
+}
 
 /* General Styles */
 body {
@@ -9,19 +22,19 @@ body {
     margin: 0; /* Tar bort marginaler från kroppen */
     padding: 0; /* Tar bort padding */
     color: #000000; /* Textfärg: svart */
-    background-color: #f9f9f9; /* Bakgrundsfärg: ljusgrå */
+    background-color: #1b1b1b; /* Bakgrundsfärg: ljusgrå */
 }
 
 .container {
-    width: 100%; /* Behåller 90% av bredden av skärmen */
+    width: 100%; /* Behåller 100% av bredden av skärmen */
     max-width: 1200px; /* Maxbredd på 1200px */
     margin: 0 auto; /* Centrerar innehållet */
     padding: 0 15px; /* Sidpadding */
 }
 
 /* Header Styles */
-.header {
-    background: linear-gradient(90deg, #3a3938, #000000); /* Mörk gradient */
+header {
+    background: linear-gradient(90deg, #11100f, #000000); /* Mörk gradient */
     color: #fff; /* Vit text */
     padding: 20px 0; /* Vertikal padding för utrymme */
 }
@@ -47,6 +60,7 @@ header .container {
 
 }
 
+
 nav ul {
     list-style: none; /* Tar bort punktlistan */
     padding: 0; /* Tar bort padding */
@@ -59,41 +73,326 @@ nav ul li {
 }
 
 nav ul li a {
+    font-family: "Iceland", serif;
     color: #fff; /* Vit färg på länktext */
     text-decoration: none; /* Tar bort understrykning från länkar */
-    font-weight: bold; /* Fetter texten */
+    font-weight: bolder; /* Fetter texten */
     transition: color 0.3s ease; /* Smidig övergång av färg */
-    font-size: larger;
+    font-size: 1.8rem;
 }
 
 nav ul li a:hover {
-    text-decoration: underline; /* Understryker länk vid hover */
     color: #f25c05; /* Byter färg till orange vid hover */
 }
 
 
+/* Specifik stil för nyhetsknappen */
+@keyframes vibrate {
+    0%, 100% { 
+        transform: translate(0) rotate(0); 
+        text-shadow: 0 0 10px rgba(242, 92, 5, 0.8);
+    }
+    10% { 
+        transform: translate(-8px, 8px) rotate(-3deg); 
+        text-shadow: 0 0 20px rgba(242, 92, 5, 0.9);
+    }
+    20% { 
+        transform: translate(8px, -8px) rotate(3deg);
+        text-shadow: 0 0 15px rgba(242, 92, 5, 1);
+    }
+    30% { 
+        transform: translate(-8px, -8px) rotate(-3deg);
+        text-shadow: 0 0 20px rgba(242, 92, 5, 0.9);
+    }
+    40% { 
+        transform: translate(8px, 8px) rotate(3deg);
+        text-shadow: 0 0 25px rgba(242, 92, 5, 1);
+    }
+    50% { 
+        transform: translate(-8px, 0) rotate(-3deg);
+        text-shadow: 0 0 30px rgba(242, 92, 5, 0.8);
+    }
+    60% { 
+        transform: translate(8px, 0) rotate(3deg);
+        text-shadow: 0 0 25px rgba(242, 92, 5, 1);
+    }
+    70% { 
+        transform: translate(-8px, 8px) rotate(-3deg);
+        text-shadow: 0 0 20px rgba(242, 92, 5, 0.9);
+    }
+    80% { 
+        transform: translate(8px, -8px) rotate(3deg);
+        text-shadow: 0 0 15px rgba(242, 92, 5, 1);
+    }
+    90% { 
+        transform: translate(-4px, 4px) rotate(-1deg);
+        text-shadow: 0 0 10px rgba(242, 92, 5, 0.8);
+    }
+}
+
+nav ul li a[href="#"] {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+nav ul li a[href="#"]:active {
+    animation: vibrate 0.5s ease-in-out;
+    color: #ff3e00;
+    text-shadow: 0 0 15px #ff3e00;
+    transform-origin: center;
+}
 
 /* Hero Section */
+
 .hero {
-    background: url(../images/bannercontactus.png) no-repeat center center/cover;
-    color: #fff; /* Vit text */
-    text-align: center; /* Centrerad text */
-    padding: 100px 20px; /* Stor padding för utrymme */
+    background: url(../images/banner.png) no-repeat center center/cover; /* Mörk bakgrund för kontrast */
+    color: #ffffff; /* Vit text för läsbarhet */
+    text-align: center; /* Centrerar all text */
+    padding: 50px 20px; /* Justerar padding för bättre layout */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); /* Lägger till en mjuk vit glow-effekt */
+    position: relative;
+    overflow: hidden;
+}
+
+/* decor iconer för hero section */
+.floating-icon {
+    position: absolute;
+    color: rgba(248, 103, 0, 0.58);
+    animation: float 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+.icon-1 {
+    top: 10%;
+    left: 15%;
+    font-size: 2rem;
+    animation-delay: 0s;
+}
+
+.icon-2 {
+    top: 20%;
+    right: 6%;
+    font-size: 3rem;
+    animation-delay: 0.5s;
+}
+
+.icon-3 {
+    bottom: 30%;
+    left: 14%;
+    font-size: 2.5rem;
+    animation-delay: 1s;
+}
+
+.icon-4 {
+    bottom: 45%;
+    right: 15%;
+    font-size: 2rem;
+    animation-delay: 1.5s;
+}
+
+.icon-5 {
+    top: 35%;
+    left: 8%;
+    font-size: 2.8rem;
+    animation-delay: 0.7s;
+    animation: floatReverse 4s ease-in-out infinite;
+}
+
+.icon-6 {
+    bottom: 30%;
+    right: 8%;
+    font-size: 2.2rem;
+    animation-delay: 1.2s;
+    animation: floatDiagonal 5s ease-in-out infinite;
+}
+
+.icon-7 {
+    top: 40%;
+    left: 25%;
+    font-size: 2.4rem;
+    animation-delay: 0.3s;
+    animation: floatCircle 6s linear infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+        opacity: 0.4;
+    }
+}
+
+@keyframes floatReverse {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translateY(20px) rotate(-10deg);
+        opacity: 0.4;
+    }
+}
+
+@keyframes floatDiagonal {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        transform: translate(-15px, -15px) rotate(15deg);
+        opacity: 0.4;
+    }
+}
+
+@keyframes floatCircle {
+    0% {
+        transform: rotate(0deg) translateX(10px) rotate(0deg);
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: rotate(360deg) translateX(10px) rotate(-360deg);
+        opacity: 0.2;
+    }
 }
 
 .hero h2 {
-    font-family: 'Oswald', sans-serif;  /* Eller vilken font du vill använda */
-    font-size: 3.5rem;
-    margin: 0 0 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    text-transform: none;
+    font-family: "Lexend", serif; 
+    font-size: 3.5rem; /* Ökar storleken på rubriken */
+    color: #ffffff; /* Vit text för hög kontrast mot mörk bakgrund */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Lägger till vit glow-effekt */
+    font-weight: 500; /* Gör texten fetare */
+    line-height: 1.2; /* Justerar radavståndet för bättre läsbarhet */
+    margin-top: 100px;
+}
+
+.hero h2 .highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.hero h2 .highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #f86700, #f7944e);
+    border-radius: 0;
 }
 
 .hero p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.2rem; /* Justerar textstorleken för paragrafer */
+    color: #cccccc; /* Ljusare grå färg för paragrafer för att skilja från rubriken */
+    margin-bottom: 30px; /* Ökar utrymmet under paragrafer */
+}
+
+.hero .cta {
+    background-color: #f25c05; /* Orange bakgrund */
+    color: #ffffff; /* Vit text */
+    padding: 15px 30px; /* Ökar padding för att göra knappen större */
+    font-size: 1.2rem; /* Ökar fontstorleken */
+    border-radius: 5px; /* Rundade hörn */
+    text-decoration: none; /* Tar bort understrykning */
+    font-weight: bold; /* Fetstil */
+    transition: all 0.3s ease; /* Animation för alla effekter */
+    margin-bottom: 50px;
+    box-shadow: 0 0 15px rgba(242, 92, 5, 0.3),
+                0 0 30px rgba(242, 92, 5, 0.2);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .cta:hover {
+    background-color: transparent; /* Transparent bakgrund vid hover */
+    border-radius: 5px; /* Rundade hörn */
+    border: 2px solid #f25c05; /* Orange border vid hover */
+    color: #f25c05; /* Orange text vid hover */
+    transform: translateY(-3px); /* Lätt uppåtrörelse */
+    box-shadow: 0 0 20px rgba(242, 92, 5, 0.5),
+                0 0 40px rgba(242, 92, 5, 0.3),
+                0 0 60px rgba(242, 92, 5, 0.2);
+}
+
+.hero .cta:active {
+    transform: translateY(0); /* Återgår när knappen trycks ner */
+}
+
+.hero .intro-cta {
+    background-color: #f25c05; /* Orange bakgrund */
+    color: #ffffff; /* Vit text */
+    padding: 10px 20px; /* Ökar padding för att göra knappen större */
+    font-size: 1.2rem; /* Ökar fontstorleken */
+    border-radius: 5px; /* Rundade hörn */
+    text-decoration: none; /* Tar bort understrykning */
+    font-weight: bold; /* Fetstil */
+    transition: background-color 0.3s ease; /* Animation för hover-effekt */
+}
+
+.hero .intro-cta:hover {
+    background-color: #e24e1b; /* Mörkare orange vid hover */
+    transform: scale(1.1); /* Lätt förstoringseffekt */
+}
+
+/* Video styling */
+.hero .intro-video {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.hero .intro-video video {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid rgba(248, 103, 0, 0.6);
+    animation: videoGlow 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 5px rgba(248, 103, 0, 0.3));
+}
+
+@keyframes videoGlow {
+    0%, 100% {
+        box-shadow: 
+            0 0 10px rgba(248, 103, 0, 0.3),
+            0 0 15px rgba(248, 103, 0, 0.2),
+            0 0 20px rgba(248, 103, 0, 0.1);
+        border-color: rgba(248, 103, 0, 0.6);
+    }
+    50% {
+        box-shadow: 
+            0 0 20px rgba(255, 69, 0, 0.4),
+            0 0 42px rgba(255, 69, 0, 0.3),
+            0 0 52px rgba(255, 69, 0, 0.2);
+        border-color: rgba(255, 69, 0, 0.7);
+    }
+}
+
+/* Responsivitet */
+@media (max-width: 768px) {
+    .hero h2, .hero .intro-text h2 {
+        font-size: 2rem; /* Mindre rubrikstorlek på små skärmar */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Mindre textstorlek på små skärmar */
+    }
+
+    .hero .cta, .hero .intro-cta {
+        padding: 8px 20px; /* Mindre padding på små skärmar */
+    }
 }
 
 /* Call-to-Action Button */
@@ -133,6 +432,43 @@ nav ul li a:hover {
 .cta:hover {
     background-color: #9c4a1a; /* Mörkare orange vid hover */
 }       
+
+
+
+@media (max-width: 768px) {
+    .intro-container {
+        flex-direction: column;
+    }
+
+    .intro-text, .intro-video {
+        width: 100%;
+    }
+}
+
+.intro-cta {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #f86700;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.intro-cta:hover {
+    background-color: transparent;
+    border: 2px solid #f86700;
+    color: #f86700;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(248, 103, 0, 0.4);
+}
+
+.intro-cta:active {
+    transform: translateY(0);
+}
 
 /* News Section */
 .news {
@@ -203,7 +539,7 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    background-color: #222; /* Mörk bakgrund */
+    background: linear-gradient(90deg, #171615, #000000); /* Mörk bakgrund */
     color: #fff; /* Vit text */
     text-align: center; /* Centrerad text */
     padding: 20px 0; /* Padding för utrymme */
@@ -270,134 +606,48 @@ footer a:hover {
 }
 
 /*det är för medeleandet som kommer upp på sidan*/
+
 .bottom-header {
-    position: fixed;
-    top: 80px;
-    right: 0;  /* Sätt till 0 för att sitta helt mot kanten */
-    width: auto;
-    max-width: 400px;
+    position: relative; /* Börja med relative position */
+    width: 100%;
     background: #f86700;
-    z-index: 1000;
+    z-index: 1001;
     transition: all 0.5s ease;
-    border-radius: 8px 0 0 8px;  /* Bara rundade hörn på vänster sida */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
+.bottom-header.sticky {
+    position: fixed; /* Blir fixed när den får sticky-klassen */
+    top: 0;
+    left: 0;
+}
+
 .bottom-header.hide {
-    transform: translateX(120%);
+    transform: translateY(-100%);
     opacity: 0;
 }
 
 .medelande {
     text-align: center;
-    padding: 12px 20px;
+    padding: 10px 15px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .medelande h6 {
     margin: 0;
     color: white;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
-.sticky {
-    position: sticky;
-    top: 170px;
-}
 
-/* Dark Mode */
-body.dark-mode {
-    background-color: #121212;
-    color: #f4f4f4;
-}
-
-body.dark-mode header {
-    background-color: #333;
-}
-
-body.dark-mode .news {
-    background: linear-gradient(90deg, #444, #666); /* Gradient i mörkt läge */
-}
-
-body.dark-mode .cta {
-    background-color: #444;
-}
-
-body.dark-mode .cta:hover {
-    background-color: #222;
-}
 
 
 
 /*News fliken för att visa nyheter*/
-
-/* General Styles */
-/* General Styles */
-body {
-    font-family: Arial, sans-serif; /* Sätter fonten till Arial */
-    line-height: 1.6; /* Radavstånd */
-    margin: 0; /* Tar bort marginaler från kroppen */
-    padding: 0; /* Tar bort padding */
-    color: #000000; /* Textfärg: svart */
-    background-color: #1b1b1b; /* Bakgrundsfärg: ljusgrå */
-}
-
-.container {
-    width: 100%; /* Behåller 100% av bredden av skärmen */
-    max-width: 1200px; /* Maxbredd på 1200px */
-    margin: 0 auto; /* Centrerar innehållet */
-    padding: 0 15px; /* Sidpadding */
-}
-
-/* Header Styles */
-header {
-    background: linear-gradient(90deg, #3a3938, #000000); /* Mörk gradient */
-    color: #fff; /* Vit text */
-    padding: 20px 0; /* Vertikal padding för utrymme */
-}
-
-header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    position: relative;
-}
-
-.logo {
-    width: 200px; /* Justerar loggans bredd */
-    height: flex; /* Bibehåller proportionerna */
-    margin-right: 20px; /* Mellanrum till nästa element */
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.1);/* Förstorar loggan vid hover */
-}
-
-nav ul {
-    list-style: none; /* Tar bort punktlistan */
-    padding: 0; /* Tar bort padding */
-    margin: 5px 0 0; /* Justerar margin för listan */
-}
-
-nav ul li {
-    display: inline; /* Gör listan horisontell */
-    margin: 0 10px; /* Mellanrum mellan listobjekten */
-}
-
-nav ul li a {
-    color: #fff; /* Vit färg på länktext */
-    text-decoration: none; /* Tar bort understrykning från länkar */
-    font-weight: bold; /* Fetter texten */
-    transition: color 0.3s ease; /* Smidig övergång av färg */
-    font-size: larger;
-}
-
-nav ul li a:hover {
-    text-decoration: underline; /* Understryker länk vid hover */
-    color: #f25c05; /* Byter färg till orange vid hover */
-}
 
 /* News Section */
 .news-section-title {
@@ -871,6 +1121,8 @@ nav ul li a:hover {
     margin: 0;
     padding: 0;
     border: none;
+    box-sizing: border-box; /* Säkerställer att bredden inkluderar padding och border */
+    overflow-x: hidden; /* Förhindrar horisontell scrollning */
 }
 
 /* Alternativt kan du använda denna stil för en mer solid look 
@@ -914,7 +1166,7 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     header .container {
         padding-right: 60px;
     }
-
+    
     .hamburger {
         display: block;
         position: absolute;
@@ -927,14 +1179,15 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
         position: fixed;
         top: 0;
         right: -100%;
-        width: 280px;
-        height: 65vh;
-        background: linear-gradient(90deg, #3a3938, #000000);
+        width: 100%; /* Ändra till full bredd */
+        height: 100vh; /* Ändra till full höjd */
+        background: rgba(58, 57, 56, 0.8); /* Semi-transparent bakgrund */
+        backdrop-filter: blur(10px); /* Lägg till blur-effekt */
+        -webkit-backdrop-filter: blur(10px); /* För Safari-stöd */
         flex-direction: column;
-        padding-top: 20px;
+        padding-top: 80px; /* Öka padding-top för bättre spacing */
         transition: 0.3s ease;
         z-index: 9998;
-        border-bottom-left-radius: 25px;
     }
 
     .nav-links.active {
@@ -942,19 +1195,15 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     }
 
     .nav-links li {
-        margin: 8px 0;
+        margin: 20px 0; /* Öka margin för bättre spacing */
         text-align: center;
         position: relative;
     }
 
-    .nav-links li::after {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: 10%;
-        width: 80%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, #f86700, transparent);
+    .nav-overlay.active {
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.7);
     }
 
     /* Hamburger animation när den är aktiv */
@@ -971,7 +1220,7 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     }
 
     .nav-links a {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         padding: 8px;
         display: block;
         transition: all 0.3s ease;
@@ -979,7 +1228,7 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
 
     .nav-links a:hover {
         color: #f86700;
-        transform: translateX(10px);
+        transform: translateY(10px);
         text-decoration: none;
         background: linear-gradient(90deg, transparent, rgba(248, 103, 0, 0.1));
     }
@@ -997,120 +1246,20 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     z-index: 9997;
     opacity: 0;
     transition: opacity 0.6s ease;
+    
 }
 
 .nav-overlay.active {
     display: block;
     opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
-.intro-section {
-    background: #222;
-    padding: 40px 0;
-    margin-bottom: 0;
-}
 
-.intro-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.intro-text {
-    flex: 1;
-    color: #f4f4f4;
-}
-
-.intro-text h2 {
-    color: #f86700;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.intro-text p {
-    margin-bottom: 15px;
-    line-height: 1.6;
-    font-size: 1.1rem;
-}
-
-.intro-video {
-    flex: 1;
-    position: relative;
-}
-
-.intro-video video {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 2px solid #f86700;
-    position: relative;
-    z-index: 1;
-}
-
-.intro-video::after {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -3px;
-    right: -3px;
-    bottom: -3px;
-    border-radius: 14px;
-    background: linear-gradient(45deg, #f86700, transparent, #f86700);
-    z-index: 0;
-    animation: borderGlow 2s ease-in-out infinite;
-}
-
-@keyframes borderGlow {
-    0% {
-        filter: blur(5px) brightness(1);
-    }
-    50% {
-        filter: blur(5px) brightness(1.5);
-    }
-    100% {
-        filter: blur(5px) brightness(1);
-    }
-}
-
-@media (max-width: 768px) {
-    .intro-container {
-        flex-direction: column;
-    }
-
-    .intro-text, .intro-video {
-        width: 100%;
-    }
-}
-
-.intro-cta {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #f86700;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.intro-cta:hover {
-    background-color: transparent;
-    border: 2px solid #f86700;
-    color: #f86700;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(248, 103, 0, 0.4);
-}
-
-.intro-cta:active {
-    transform: translateY(0);
-}
 
 /* Specific styles for about page */
 .about-container {
@@ -1118,6 +1267,11 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     background-color: linear-gradient(90deg, #3a3938, #000000); /* Keeping the background as usual */
     padding: 20px;
     text-align: center; /* Centrerar all text */
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
 .about-container h1 {
@@ -1180,6 +1334,8 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
 .about-container button:hover {
     background: #ffcaa4; /* Mörkare bakgrund vid hover */
 }
+
+
 
 .social-media-section {
     text-align: center;
@@ -1257,12 +1413,10 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     padding: 20px;
     color: white;
     background: url(../images/bannercontactus.png) no-repeat center center/cover;
-    background-size: 1184px 380px; /* Specifika mått kan justeras efter behov */
+    background-size: 1184px 380px;
     background-repeat: no-repeat;
     background-position: center;
-    margin-top: 20px;
-    margin-bottom: -20px;
-
+    margin: 20px 0; /* Ändrat från margin-top och margin-bottom */
 }
 
 .contact-info {
@@ -1382,24 +1536,36 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
 
 
 .roadmap-section {
-    text-align: center; /* Centrerar innehållet */
-    margin-top: 0; /* Lägger till utrymme ovanför sektionen */
-    margin-bottom: -7px; /* Lägger till utrymme nedanför sektionen */
-    overflow: hidden; /* Döljer innehållet som är utanför sektionen */
-}
-
-.roadmap-section h2 {
-    color: #333; /* Mörk textfärg för kontrast */
-    font-size: 1.5rem; /* Större textstorlek */
-    margin-bottom: 10px; /* Utrymme mellan rubrik och bild */
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centrera innehållet horisontellt */
 }
 
 .roadmap-section gif {
-    max-width: 100%; /* Gör så att bilden inte blir större än sin container */
-    height: auto; /* Behåller bildens proportioner */
-    
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+    transform: translateX(20px); /* Justera detta värde för att flytta bilden åt höger */
 }
 
+/* Media Queries för olika skärmstorlekar */
+@media (max-width: 768px) {
+    .roadmap-section img {
+        width: 100%; /* Fullbredd på mindre skärmar */
+        height: auto; /* Automatisk höjd för att behålla proportioner */
+        max-width: 100%; /* Säkerställer att bilden inte blir större än skärmen */
+    }
+}
+
+
+
+/* detta är för timeline bilden som är i about.html */
 .roadmap-about img {
     width: 100vw; /* Sätter bilden till att vara lika bred som viewporten */
     height: auto; /* Behåller bildens proportioner */
@@ -1408,3 +1574,98 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     margin: 0; /* Tar bort marginal */
     padding: 0; /* Tar bort padding */
 }
+
+.roadmap-about {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Förhindrar horisontell scrollning */
+}
+
+.roadmap-about img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+.section-divider {
+    width: 100%;
+    height: 3px;
+    background: #f25c05;
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: block;
+    box-sizing: border-box;
+}
+
+.section-divider-hero {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #f25c05, transparent);
+    margin: 0;
+    padding: 0;
+}
+
+/* Popup meddelande styling */
+.news-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 25px 50px;
+    border-radius: 15px;
+    border: 3px solid #f25c05;
+    z-index: 10000;
+    text-align: center;
+    animation: popupFadeIn 0.5s ease-out;
+    box-shadow: 0 0 30px rgba(242, 92, 5, 0.6),
+                inset 0 0 20px rgba(242, 92, 5, 0.3);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.news-popup.show {
+    display: block;
+    opacity: 1;
+}
+
+.news-popup p {
+    color: white;
+    font-size: 2rem;
+    margin: 0;
+    font-family: "Iceland", serif;
+    text-shadow: 0 0 10px rgba(242, 92, 5, 0.8);
+    animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(242, 92, 5, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(242, 92, 5, 1),
+                     0 0 30px rgba(242, 92, 5, 0.8),
+                     0 0 40px rgba(242, 92, 5, 0.6);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(242, 92, 5, 0.8);
+    }
+}
+
