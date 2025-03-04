@@ -153,22 +153,62 @@
         max-width: 100%;
         margin: 0 auto;
     }
+.future-box {
+    flex: 0 1 250px; /* Öka bredden */
+    padding: 2rem 1.6rem; /* Justera padding */
+    min-height: 250px; /* Öka minsta höjden */
+    background-color: #1a1b1e;
+    border-radius: 8px;
+    text-align: left;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid #f86700;
+    box-shadow: 0 0 15px rgba(248, 103, 0, 0.3);
+    transition: all 0.3s ease;
+}
 
-    .future-box {
-        flex: 0 1 230px;
-        padding: 1.8rem 1.4rem;
-        min-height: 230px;
-        background-color: #1a1b1e;
-        border-radius: 8px;
-        text-align: left;
-        transition: transform 0.2s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        border: 2px solid #f86700;
-        box-shadow: 0 0 15px rgba(248, 103, 0, 0.3);
-        transition: all 0.3s ease;
-    }
+.future-box .icon {
+    font-size: 2rem; /* Öka ikonens storlek */
+    margin-bottom: 1.2rem; /* Justera marginalen nedanför ikonen */
+    background-color: #f86700;
+    width: 50px; /* Öka ikonens bredd */
+    height: 50px; /* Öka ikonens höjd */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.future-box h3 {
+    color: #fff;
+    font-weight: bolder;
+    transition: color 0.3s ease;
+    margin-bottom: 0.8rem; /* Justera marginalen nedanför rubriken */
+}
+
+.future-box p {
+    color: #acacac;
+    font-size: 1rem; /* Öka textstorleken */
+    font-weight: bold;
+    line-height: 1.6; /* Justera radavståndet */
+    margin: 0;
+    flex-grow: 1;
+}
+
+.learn-more {
+    display: inline-block;
+    padding: 0.6rem 1rem; /* Justera padding */
+    margin-top: 1.2rem; /* Justera marginalen ovanför knappen */
+    background-color: #f86700;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
     .future-box:hover {
         transform: translateY(-5px);

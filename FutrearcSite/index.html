@@ -4,13 +4,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FutureArc</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>FutureArc main</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="assets/js/include.js"></script>
-    <script src="assets/js/logocolor.js"></script>
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/modal.js"></script>
     <script src="assets/js/faq.js"></script>
+    <script src="assets/js/script.js"></script>
 </head>
 <body onload="includeHTML()">
     <div include-html="components/medelande.html"></div>
@@ -28,6 +28,7 @@
     <div class="section-divider"></div>
     <button onclick="scrollToTop()" class="scroll-to-top">Ta mig upp</button>
     <div include-html="components/footer.html"></div>
+    
     <script>
         function scrollToTop() {
             window.scrollTo({top: 0, behavior: 'smooth'});

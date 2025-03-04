@@ -77,12 +77,41 @@ nav ul li a {
     color: #fff; /* Vit färg på länktext */
     text-decoration: none; /* Tar bort understrykning från länkar */
     font-weight: bolder; /* Fetter texten */
-    transition: color 0.3s ease; /* Smidig övergång av färg */
     font-size: 1.8rem;
+    position: relative; /* Behållare för pseudo-element */
+    display: inline-block; /* Gör att länken beter sig som en block för att underlätta animation */
+    transition: opacity 0.3s ease; /* Animerar opaciteten */
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px; /* Placera linjen under texten */
+    width: 100%; /* Linjen sträcker sig över hela länken */
+    height: 2px; /* Höjd på linjen */
+    background-color: #f25c05; /* Färg på linjen */
+    transform: scaleX(0); /* Börjar med att linjen är osynlig */
+    transform-origin: left; /* Startar animationen från vänster */
+    transition: transform 0.3s ease; /* Animerar linjen */
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Linjen visas full bredd */
+    transform-origin: left; /* Gör att linjen "slider ut" till höger */
 }
 
 nav ul li a:hover {
-    color: #f25c05; /* Byter färg till orange vid hover */
+    color: #f86700;
+}
+
+/* När du hovrar över en länk, sänk opaciteten på de andra länkarna */
+nav ul:hover li a {
+    opacity: 0.3; /* Sänker opaciteten på alla länkar */
+}
+
+nav ul li a:hover {
+    opacity: 1; /* Behåll full opacitet på den länk du hovrar över */
 }
 
 
@@ -144,9 +173,49 @@ nav ul li a[href="#"]:active {
     transform-origin: center;
 }
 
+
+/* Beta Tag som ska bort vid lanseringen av riktiga sida */
+.beta-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(248, 103, 0, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(248, 103, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(248, 103, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(248, 103, 0, 0.8);
+    }
+}
+
+/* Make it responsive */
+@media (max-width: 768px) {
+    .beta-tag {
+        top: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+
+
 /* Hero Section */
 
-.hero {
+.hero {                 /* bakgrunden kan ändras med bara banner.png , vi får bestämma */
     background: url(../images/banner.png) no-repeat center center/cover; /* Mörk bakgrund för kontrast */
     color: #ffffff; /* Vit text för läsbarhet */
     text-align: center; /* Centrerar all text */
@@ -286,8 +355,13 @@ nav ul li a[href="#"]:active {
     bottom: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(to right, #f86700, #f7944e);
+    background: linear-gradient(to right, #f86700, #fd8b39);
     border-radius: 0;
+}
+
+.hero h2 .highlight .y-letter {
+    position: relative;
+    z-index: 1; 
 }
 
 .hero p {
@@ -351,6 +425,7 @@ nav ul li a[href="#"]:active {
     max-width: 700px;
     margin: 20px auto;
     border-radius: 5px;
+    z-index: 10;
 }
 
 .hero .intro-video video {
@@ -470,10 +545,13 @@ nav ul li a[href="#"]:active {
     transform: translateY(0);
 }
 
-/* News Section */
+
+
+
+/* Senaste nyheter / News Section */
 .news {
     padding: 40px 20px; /* Padding för utrymme */
-    background: linear-gradient(90deg, #3a3938, #000000); /* Orange gradient */
+    background: linear-gradient(90deg, #171615, #000000); /* Mörk bakgrund */
     text-align: center; /* Centrerad text */
 }
 
@@ -494,16 +572,14 @@ nav ul li a[href="#"]:active {
     margin-top: -2rem;  /* Negativt margin för att flytta artiklarna uppåt */
 }
 
-
 .articles article {
     background-color: #1a1a1a;
-    border: 2px solid #f86700;
+    border: 1px solid #f86700;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(248, 103, 0, 0.3);
     width: 300px;
     text-align: left;
-    border: 2px solid transparent; /* Transparent border som grund */
     transition: all 0.3s ease;
 }
 
@@ -553,10 +629,6 @@ footer p {
 footer a {
     color: #f25c05; /* Orange länkar */
     text-decoration: none; /* Ingen understrykning */
-}
-
-footer a:hover {
-    text-decoration: underline; /* Understrykning vid hover */
 }
 
 .social-icons {
@@ -973,7 +1045,7 @@ footer a:hover {
     height: 45px;
     background-color: #1a1b1e;
     border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
     transform: translateY(0);
 }
@@ -981,7 +1053,7 @@ footer a:hover {
 .footer .social-link i {
     color: #f86700;
     font-size: 1.4rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .footer .social-link:hover {
@@ -995,6 +1067,48 @@ footer a:hover {
     transform: scale(1.1);
 }
 
+.footer-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.footer-links a:hover {
+    color: #f86700;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #f86700;
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
 
 
 
@@ -1002,7 +1116,7 @@ footer a:hover {
 .faq-section {
     padding: 8px 0;  /* Ta bort sidopadding */
     width: 100%;      /* Full bredd */
-    background: linear-gradient(90deg, #3a3938, #000000); /* Bakgrundsfärg som täcker hela bredden */
+    background: linear-gradient(90deg, #171615, #000000); /* Bakgrundsfärg som täcker hela bredden */
 }
 
 .faq-container {
@@ -1263,29 +1377,232 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
 
 /* Specific styles for about page */
 .about-container {
-    color: white; /* All text in white */
-    background-color: linear-gradient(90deg, #3a3938, #000000); /* Keeping the background as usual */
-    padding: 20px;
-    text-align: center; /* Centrerar all text */
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
     overflow-x: hidden;
 }
 
-.about-container h1 {
-    margin: 0 auto; /* Centrerar elementen horisontellt */
-    max-width: 800px; /* Begränsar bredden för bättre läsbarhet */
-    color: #f86700;
-    font-size: 2.5rem;
-    font-weight: 700;    
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.about-container p, .about-container h2 {
-    margin: 0 auto; /* Centrerar elementen horisontellt */
-    max-width: 800px; /* Begränsar bredden för bättre läsbarhet */
+.text-section-first {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 4rem;
 }
+
+.text-section {
+    margin-top: -4rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+
+/* Varannan sektion - omvänd ordning */
+.text-section:nth-child(even) {
+    flex-direction: flex-end;
+}
+.text-section full-width {
+    width: 100%;
+}
+
+.text-content {
+    flex: 1;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    border: 1px solid rgba(248, 103, 0, 0.2);
+    max-width: 800px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 1;
+}
+
+.text-content:hover {
+    transform: translateY(-10px) scale(1.1);
+    background: rgba(0, 0, 0, 0.7);
+    border-color: #f86700;
+    box-shadow: 
+        0 10px 20px rgba(248, 103, 0, 0.2),
+        0 6px 6px rgba(248, 103, 0, 0.1);
+}
+
+.text-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(248, 103, 0, 0.1),
+        rgba(248, 103, 0, 0)
+    );
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.text-content:hover::after {
+    opacity: 1;
+}
+
+.aboutus-vision {
+    flex: 0 0 400px;
+    overflow: hidden;  /* This will hide the overflowing parts of the image */
+    border-radius: 8px;
+}
+
+.aboutus-vision img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transform: scale(1.5);
+}
+
+
+/* Mobilanpassning */
+@media (max-width: 968px) {
+    .text-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text-section:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .text-content {
+        max-width: 100%;
+        margin: 0; /* Ta bort eventuella marginaler */
+    }
+
+    .aboutus-vision {
+        display: none; /* Dölj bilderna helt i mobilvy */
+    }
+
+    /* Justera spacing för bättre mobilvy */
+    .text-section {
+        margin-top: -2rem; /* Justera mellanrum mellan sektioner */
+        margin-bottom: 2rem;
+        gap: 1rem;
+    }
+
+    .roadmap-about {
+        display: none; /* Dölj roadmap i mobilvy */
+    }
+}
+
+.about-container h1 {
+    color: #f86700;
+    font-size: 2.9rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: relative;
+    padding-bottom: 1rem; /* Utrymme för understreck */
+}
+
+/* Lägg till en understrykning under rubriken */
+.about-container h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px; /* Bredden på understrykningen */
+    height: 3px;
+    background-color: #f86700;
+    border-radius: 2px;
+}
+
+.about-text h2 {
+    color: #f86700;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
+
+.about-text h3 {
+    color: #f86700;
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.about-text h4 {
+    color: #f86700;
+    font-size: 1.2rem;
+    margin: 1.2rem 0;
+}
+
+.vision-conclusion {
+    margin-top: 2rem;
+    font-style: italic;
+    border-left: 3px solid #f86700;
+    padding-left: 1rem;
+}
+
+
+
+.about-text h1 {
+    color: #f86700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #f4f4f4;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+
+@media (max-width: 1200px) {
+    .aboutus-vision {
+        flex: 0 0 400px; /* Mindre bredd på större skärmar */
+    }
+}
+
+@media (max-width: 968px) {
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .about-text {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .aboutus-vision {
+        flex: none;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+
+
+
 
 .section-divider-about {
     border: 0;
@@ -1313,7 +1630,7 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
 }
 
 .contact-form h2{
-    margin: 0 auto; /* Centrerar elementen horisontellt */
+    margin: 15px auto; /* Centrerar elementen horisontellt */
     max-width: 800px; /* Begränsar bredden för bättre läsbarhet */
     color: #f86700;
     font-size: 2.5rem;
@@ -1341,27 +1658,6 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     text-align: center;
     padding: 20px; /* Ljusgrå bakgrund för sektionen */
 }
-
-/* Scroll to top button */
-
-.scroll-to-top {
-    position: fixed;
-    right: 20px;
-    bottom: -60px; /* Startar gömd under sidans botten */
-    padding: 10px 20px;
-    background-color: #f25c05;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: bottom 0.3s ease-in-out;
-}
-
-.scroll-to-top:hover {
-    background-color: #e24e1b;
-}
-
 
 
 
@@ -1406,6 +1702,7 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s; /* Smidig övergång för alla egenskaper */
 }
 
+/* Grundstilar för kontaktsektionen */
 .contact-section {
     display: flex;
     justify-content: space-between;
@@ -1416,8 +1713,9 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     background-size: 1184px 380px;
     background-repeat: no-repeat;
     background-position: center;
-    margin: 20px 0; /* Ändrat från margin-top och margin-bottom */
+    margin-bottom: auto;
 }
+
 
 .contact-info {
     width: 40%;
@@ -1486,6 +1784,46 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     border: 2px solid #f25c05; /* Lägger till en orange gräns */
     transform: translateY(-2px); /* Flyttar knappen lite uppåt */
     box-shadow: 0 5px 15px rgba(248, 103, 0, 0.4); /* Lägger till en skugga för djup */
+}
+
+/* Media Queries för responsivitet */
+@media (max-width: 768px) {
+    .contact-section {
+        flex-direction: column; /* Ändrar till kolumnlayout på mindre skärmar */
+        align-items: center;
+        padding: 10px;
+    }
+
+    .contact-info, .contact-form {
+        width: 100%; /* Full bredd på mindre skärmar */
+        padding: 10px;
+    }
+
+    .contact-info h2 {
+        font-size: 1.2rem; /* Mindre textstorlek för rubriken */
+    }
+
+    .social-media-icons-contact a {
+        font-size: 24px; /* Mindre ikonstorlek */
+    }
+
+    .contact-form {
+        backdrop-filter: blur(3px); /* Mindre suddighet för bättre prestanda på mobiler */
+    }
+
+    .contact-form button.send-button {
+        padding: 8px 40px; /* Mindre padding för knappen */
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form input, .contact-form textarea {
+        padding: 8px; /* Mindre padding för input och textarea */
+    }
+
+    .contact-form button.send-button {
+        padding: 8px 30px; /* Ännu mindre padding för knappen */
+    }
 }
 
 
@@ -1609,6 +1947,8 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     padding: 0;
 }
 
+
+
 /* Popup meddelande styling */
 .news-popup {
     display: none;
@@ -1669,3 +2009,23 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     }
 }
 
+
+/* Scroll to top button */
+
+.scroll-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: -60px; /* Startar gömd under sidans botten */
+    padding: 10px 20px;
+    background-color: #f25c05;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.scroll-to-top:hover {
+    background-color: #e24e1b;
+}
