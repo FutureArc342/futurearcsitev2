@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakta</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <script src="assets/js/include.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/faq.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+        // JavaScript för att automatiskt justera höjden på textområdet
+        function autoResizeTextarea() {
+            const textarea = document.getElementById('topic');
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const textarea = document.getElementById('topic');
+            textarea.addEventListener('input', autoResizeTextarea);
+        });
+    </script>
+</head>
+<body>
+    <div include-html="components/header.html"></div>
+    <hr class="section-divider">
+    <div class="contact-container">
+        <!-- Vänster sida - Formulär -->
+        <div class="contact-form">
+            <h1>Kontakta oss</h1>
+            <p>Hör av dig och låt oss veta hur vi kan hjälpa.</p>
+
+            <form>
+                <!-- Namnfält -->
+                <label for="name">Namn</label>
+                <input type="text" id="name" name="name" required>
+
+                <!-- E-postfält -->
+                <label for="email">E-post</label>
+                <input type="email" id="email" name="email" required>
+
+                <!-- Ämnesfält -->
+                <label for="topic">Ämne</label>
+                <textarea id="topic" name="topic" rows="4" required></textarea>
+
+                <!-- Skicka-knapp -->
+                <button type="submit">Skicka meddelande</button>
+            </form>
+
+            <!-- Följ oss-sektion -->
+            <div class="follow-us">
+                <div class="social-icons-contact">
+                    <a href="https://www.linkedin.com/company/futurearcmedia" class="social-link-contact" aria-label="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/future_arcmedia" class="social-link-contact" aria-label="Twitter" target="_blank">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/futurearcmedia" class="social-link-contact" aria-label="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@futurearcmedia" class="social-link-contact" aria-label="TikTok" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a> 
+                </div>
+            </div>
+        </div>
+
+        <!-- Höger sida - Bild -->
+        <div class="image-section">
+            <!-- Lägg till din bild här -->
+            <img src="./assets/Images/contact1.png" alt="Platshållare för bild">
+        </div>
+    </div>
+    <hr class="section-divider">
+
+    <!-- Sidfot -->
+    <footer>
+        <div class="footer" include-html="components/footer.html"></div>
+    </footer>
+
+    <style>
+        /* Grundläggande stil för hela sidan */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #141414;
+            color: #333;
+        }
+
+        /* Container för innehållet */
+        .contact-container {
+        position: relative;
+        display: flex;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+        background: linear-gradient(135deg, #1a1b1e, #000000);
+        box-shadow: 0 0 30px rgba(248, 103, 0, 0.7); /* Ökad skugga */
+        border: 2px solid #f86700; /* Tydligare ram */
+        border-radius: 10px;
+        overflow: hidden;
+}
+
+
+        /* Vänster sida - Formulär */
+        .contact-form {
+            flex: 1;
+            padding-right: 40px;
+            z-index: 2;
+        }
+
+        /* Höger sida - Bild */
+        .image-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Stil för rubriken */
+        h1 {
+            margin-top: 5px;
+            color: #f86700;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }  
+
+        /* Stil för formuläret */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Stil för varje fält i formuläret */
+        form label {
+            color: #fff;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #2a2a2a;
+            color: #fff;
+            resize: none; /* Inaktivera manuell storleksändring */
+        }
+
+        form input::placeholder, form textarea::placeholder {
+            color: #bbb;
+        }
+
+        /* Stil för knappen */
+        form button {
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background-color: #f25c05;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(242, 92, 5, 0.3),
+                        0 0 30px rgba(242, 92, 5, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        form button:hover {
+            background-color: transparent;
+            border: 2px solid #f25c05;
+            color: #f25c05;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(242, 92, 5, 0.5),
+                        0 0 40px rgba(242, 92, 5, 0.3),
+                        0 0 60px rgba(242, 92, 5, 0.2);
+        }
+
+        /* Stil för följ oss-sektionen */
+        .follow-us {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .social-icons-contact {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 10px;
+        }
+
+        .social-link-contact {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #f86700;
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            transform: translateY(0);
+        }
+
+        .social-link-contact i {
+            color: #1a1b1e;
+            font-size: 28px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .social-link-contact:hover {
+            transform: translateY(-8px);
+            background-color: #1a1b1e;
+            box-shadow: 0 5px 15px rgba(248, 103, 0, 0.4);
+        }
+
+        .social-link-contact:hover i {
+            color: #f86700;
+            transform: scale(1.1);
+        }
+
+        /* Media Queries för mobilanpassning */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .contact-form {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .image-section {
+                display: none;
+            }
+
+            .social-icons-contact {
+                gap: 1rem;
+            }
+
+            .social-link-contact {
+                width: 50px;
+                height: 50px;
+            }
+
+            .social-link-contact i {
+                font-size: 24px;
+            }
+        }
+    </style>
+</body>
+</html>
