@@ -15,7 +15,6 @@
     box-sizing: border-box;
 }
 
-
 /* General Styles */
 body {
     font-family: Arial, sans-serif; /* Sätter fonten till Arial */
@@ -49,16 +48,24 @@ header .container {
 }
 
 .logo {
-    width: 200px; /* Justerar loggans bredd */
-    height: flex; /* Bibehåller proportionerna */
+    width: 250px; /* Öka bredden på loggan */
+    height: auto; /* Bibehåll proportionerna */
     margin-right: 20px; /* Mellanrum till nästa element */
+    margin-bottom: -7px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 
 .logo:hover {
     transform: scale(1.1);/* Förstorar loggan vid hover */
     filter: brightness(0.5);
+}
 
+/* Mobil meny */
+@media (max-width: 768px) {
+    .logo {
+        width: 200px; /* Minska bredden på loggan i telefonvy */
+    }
 }
 
 
@@ -332,6 +339,7 @@ nav ul li a[href="#"]:active {
         opacity: 0.2;
     }
 }
+
 
 .hero h2 {
     text-transform: none;
@@ -697,140 +705,6 @@ nav ul li a[href="#"]:active {
 
 
 
-/*News fliken för att visa nyheter*/
-
-/* News Section */
-.news-section-title {
-    color: #f86700;
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 0 0 15px 0;  /* Minskat margin-bottom till 15px */
-    letter-spacing: 1px;
-}
-
-
-
-.news-container {
-    display: flex; /* Använder Flexbox för att placera news-main och news-sidebar bredvid varandra */
-    justify-content: space-between; /* Utrymme mellan news-main och news-sidebar */
-    padding: 20px;
-}
-
-.news-main {
-    flex: 3; /* Tar upp 3 delar av utrymmet */
-    margin-right: 20px; /* Mellanrum till news-sidebar */
-}
-
-.news-item {
-    background-color: #1a1b1e;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.65);
-    margin-bottom: 20px;
-    text-align: left;
-    gap: 15px;
-}
-
-.news-item img {
-    width: 200px;  /* Mindre bildstorlek */
-    height: 150px; /* Behåll proportionerna */
-    object-fit: cover; /* Ser till att bilden täcker ytan snyggt */
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.news-item h2 {
-    color: #f86700;
-    margin: 10px 0;
-    font-size: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.news-item p {
-    color: #f4f4f4;
-    font-size: 1rem;
-    margin-bottom: 10px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.news-item a {
-    color: #f86700;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-/* Hover effekter endast på text och länkar */
-.news-item h2:hover {
-    color: white;
-    transform: translateX(5px);
-}
-
-.news-item a:hover {
-    color: white;
-    transform: translateX(5px);
-}
-
-/* Sidebar */
-.news-sidebar {
-    flex: 0.5; /* Tar upp 1 del av utrymmet */
-    padding: 20px; /* Padding inuti sidopanelen */
-    border-radius: 10px; /* Rundade hörn */
-    margin-top: 35px; 
-}
-
-
-.news-sidebar h3 {
-    margin: 0 0 10px; /* Avstånd ovanför och under rubriken */
-    font-size: 1.5rem; /* Större rubriktext */
-    color: #f4f4f4;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.news-sidebar .divider {
-    border: 0;
-    height: 1px;
-    background: #ffffff; /* Färg på linjen */
-    margin: 10px 0; /* Avstånd ovanför och under linjen */
-}
-
-.news-sidebar ul {
-    list-style: none; /* Tar bort punktlistan */
-    padding: 0; /* Tar bort padding */
-    margin: 0; /* Tar bort margin */
-}
-
-.news-sidebar ul li {
-    margin-bottom: 10px; /* Mellanrum mellan listobjekten */
-}
-
-.news-sidebar ul li a {
-    color: #f25c05; /* Orange textfärg för länkar */
-    text-decoration: none; /* Ingen understrykning */
-    font-weight: bold; /* Fet stil */
-}
-
-.news-sidebar ul li a:hover {
-    text-decoration: underline; /* Understrykning vid hover */
-}
-
-/*detta är för bilden som reklamerar för sociala medier*/
-.social-media-reklam {
-    width: 300px;
-    height: 126px;
-    background-color: transparent;
-    margin-bottom: 10px;
-    margin-top: -50px;
-}
-
-.social-media-reklam img {
-    width: 300px;
-    height: 126px;
-    object-fit: contain;
-}
 
 
 /*Modal*/
@@ -1319,7 +1193,7 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     .hamburger {
         display: block;
         position: absolute;
-        right: 15px;
+        right: -15px;
         top: 50%;
         transform: translateY(-50%);
     }
@@ -1840,8 +1714,8 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     position: fixed;
     right: 20px;
     bottom: -60px; /* Startar gömd under sidans botten */
-    width: 50px; /* Initial bredd */
-    height: 50px; /* Initial höjd */
+    width: 40px; /* Mindre bredd */
+    height: 40px; /* Mindre höjd */
     background-color: #f25c05;
     color: white;
     border-radius: 5px;
@@ -1849,17 +1723,19 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     transition: bottom 0.3s ease-in-out, width 0.3s ease, background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    font-size: 1rem; /* Justera textstorlek */
+    font-size: 0.8rem; /* Mindre textstorlek */
     font-weight: bold; /* Fet stil */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 0 10px; /* Lägg till padding för att hantera bredare innehåll */
+    padding: 0 8px; /* Mindre padding */
+    border: none; /* Ta bort eventuell kantlinje */
+    margin: 0; /* Ta bort eventuell marginal */
 }
 
 .scroll-to-top i {
-    font-size: 1.5rem; /* Justera ikonstorlek */
+    font-size: 1.2rem; /* Mindre ikonstorlek */
     transition: transform 0.3s ease, left 0.3s ease; /* Lägger till en övergång för ikonen */
     position: absolute; /* Positionera ikonen absolut för att flytta den vid hover */
     left: 50%; /* Centrera horisontellt som standard */
@@ -1867,50 +1743,50 @@ linear-gradient(90deg, transparent, #f86700, transparent);*/
 }
 
 .scroll-to-top span {
-    margin-left: 8px; /* Mellanrum mellan ikon och text */
+    margin-left: 6px; /* Mindre mellanrum mellan ikon och text */
     opacity: 0; /* Gör texten osynlig */
     transition: opacity 0.3s ease, margin-left 0.3s ease; /* Lägger till en övergång för texten */
     white-space: nowrap; /* Förhindrar textbrytning */
 }
 
 .scroll-to-top:hover {
-    width: 150px; /* Bredd vid hover */
+    width: 100px; /* Mindre bredd vid hover */
     background-color: #e24e1b;
     transform: translateY(-3px); /* Lätt uppåtrörelse vid hover */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Starkare skugga vid hover */
 }
 
 .scroll-to-top:hover i {
-    left: 15px; /* Flytta pilen till vänster vid hover */
+    left: 10px; /* Mindre förflyttning av pilen vid hover */
     transform: translateX(0) rotate(360deg); /* Rotera pilen och ta bort centrering */
 }
 
 .scroll-to-top:hover span {
     opacity: 1; /* Gör texten synlig vid hover */
-    margin-left: 40px; /* Justera mellanrummet mellan ikon och text vid hover */
+    margin-left: 20px; /* Mindre mellanrum mellan ikon och text vid hover */
 }
 
 /* Media Queries för mobilanpassning */
 @media (max-width: 768px) {
     .scroll-to-top {
-        width: 40px; /* Mindre bredd på små skärmar */
-        height: 40px; /* Mindre höjd på små skärmar */
-        font-size: 0.8rem; /* Mindre textstorlek */
+        width: 30px; /* Ännu mindre bredd på små skärmar */
+        height: 30px; /* Ännu mindre höjd på små skärmar */
+        font-size: 0.6rem; /* Ännu mindre textstorlek */
     }
 
     .scroll-to-top:hover {
-        width: 120px; /* Mindre bredd vid hover på små skärmar */
+        width: 80px; /* Ännu mindre bredd vid hover på små skärmar */
     }
 
     .scroll-to-top i {
-        font-size: 1.2rem; /* Mindre ikonstorlek på små skärmar */
+        font-size: 1rem; /* Ännu mindre ikonstorlek på små skärmar */
     }
 
     .scroll-to-top:hover i {
-        left: 10px; /* Mindre förflyttning av pilen vid hover på små skärmar */
+        left: 8px; /* Ännu mindre förflyttning av pilen vid hover på små skärmar */
     }
 
     .scroll-to-top:hover span {
-        margin-left: 30px; /* Mindre mellanrum mellan ikon och text vid hover på små skärmar */
+        margin-left: 15px; /* Ännu mindre mellanrum mellan ikon och text vid hover på små skärmar */
     }
 }
